@@ -1,0 +1,226 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>RailFan - Diesel Locomotives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="LOGO.png">
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+        }
+        .navbar-hidden {
+            opacity: 0;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .navbar-visible {
+            opacity: 1;
+            transition: opacity 0.5s, transform 0.5s;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-large {
+            transform: scale(2);
+            transition: transform 0.5s;
+        }
+        .navbar-small {
+            transform: scale(1);
+            transition: transform 0.5s;
+        }
+        .pill-effect::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+        .pill-effect:hover::before {
+            transform: scale(1);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="relative overflow-y-auto scroll-smooth bg-neutral-800" id="home">
+
+    <nav class="fixed top-0 left-0 w-full flex justify-between items-center p-4 text-white navbar-hidden navbar-large z-50" id="navbar">
+        <div class="text-4xl font-bold">RailFan</div>
+        <ul class="flex space-x-4 text-2xl" style="pointer-events: auto !important;">
+            <li class="relative pill-effect" id="navHome">
+                <a class="font-bold no-underline text-white hover:text-white" href="Main.html">Home</a>
+            </li>
+            <li class="relative pill-effect" id="navAbout">
+                <a class="font-bold no-underline text-white hover:text-white" href="Main.html#about">About</a>
+            </li>
+            <li class="relative pill-effect" id="navBlogs">
+                <a class="font-bold no-underline text-white hover:text-white" href="Main.html#blogs">Blogs</a>
+            </li>
+            <li class="relative pill-effect" id="navGallery">
+                <a class="font-bold no-underline text-white hover:text-white" href="Main.html#gallery">Gallery</a>
+            </li>
+            <li class="relative pill-effect" id="navContact">
+                <a class="font-bold no-underline text-white hover:text-white" href="Main.html#contact">Contact</a>
+            </li>
+        </ul>
+    </nav>   
+
+    <section class="py-16 relative" id="diesel">
+        <div class="container mx-auto px-4 max-w-5xl relative z-10">
+            <h2 class="text-4xl font-bold mb-8 mt-3 text-center text-white"><strong>Diesel Locomotives</strong></h2>
+            <p class="text-xl mt-4 text-center text-white">
+                Diesel locomotives revolutionized Indian Railways, with workhorses like the 
+                <strong>WDM-2, WDP-4, and WDG-4</strong> powering both passenger and freight services. While electric traction is replacing them 
+                in many regions, diesel engines remain crucial for <strong>remote routes, heavy haulage, and strategic operations</strong> across 
+                the country. <strong>Work in Progress</strong>
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <!-- Early Diesel Locomotives (1950s–1970s) -->
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WDM-1 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Diesel/WDM1.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WDM-1</h3>
+                    <p class="text-center text-neutral-800">India’s first diesel workhorse, marking the transition from steam.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WDM-2 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Diesel/WDM2.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WDM-2</h3>
+                    <p class="text-center text-neutral-800">The backbone of Indian Railways, serving for over five decades.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WDM-3A locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Diesel/WDM3A.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WDM-3A</h3>
+                    <p class="text-center text-neutral-800">An upgraded version of WDM-2, built for better efficiency.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WDM-4 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Diesel/WDM4.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WDM-4</h3>
+                    <p class="text-center text-neutral-800">A short-lived diesel giant, later overshadowed by WDM-2.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WDS-1 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Diesel/WDS1.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WDS-1</h3>
+                    <p class="text-center text-neutral-800">A pioneer in Indian diesel shunting, built for station yards.</p>
+                </div>
+
+                <!-- Passenger & Freight Workhorses (1970s–2000s) -->
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WDM-3D locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Diesel/WDM3D.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WDM-3D</h3>
+                    <p class="text-center text-neutral-800">A modernized diesel powerhouse for both freight and passenger use.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WDP-1 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Diesel/WDP1.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WDP-1</h3>
+                    <p class="text-center text-neutral-800">Built for speed, this locomotive was designed for express trains.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WDP-3A locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Diesel/WDP3A.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WDP-3A</h3>
+                    <p class="text-center text-neutral-800">A high-speed locomotive often seen pulling Rajdhani Express.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WDG-3A locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Diesel/WDG3A.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WDG-3A</h3>
+                    <p class="text-center text-neutral-800">A freight locomotive built to haul heavy loads across India.</p>
+                </div>
+
+                <!-- High-Power & Modern Diesel Locomotives (2000s–Present) -->
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WDP-4 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Diesel/WDP4.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WDP-4</h3>
+                    <p class="text-center text-neutral-800">India’s first indigenously built high-speed diesel locomotive.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WDG-4 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Diesel/WDG4.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WDG-4</h3>
+                    <p class="text-center text-neutral-800">A heavy-haul freight locomotive designed for long distances.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WDG-5 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Diesel/WDG5.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WDG-5</h3>
+                    <p class="text-center text-neutral-800">India's most powerful diesel locomotive, built for freight.</p>
+                </div>
+
+                <!-- Shunting & Special Diesel Locomotives -->
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WDS-6 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Diesel/WDS6.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WDS-6</h3>
+                    <p class="text-center text-neutral-800">A powerful diesel shunter used in major railway yards.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WDG-6G locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Diesel/WDG6G.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WDG-6G</h3>
+                    <p class="text-center text-neutral-800">A modern freight locomotive built with American technology.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WAG-9H Diesel Hybrid locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Diesel/WDAP5.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center"><WDAP-5></WDAP-5> Diesel Hybrid</h3>
+                    <p class="text-center text-neutral-800">An experimental locomotive blending diesel and electric power.</p>
+                </div>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 0) {
+                navbar.classList.remove('navbar-hidden', 'navbar-large');
+                navbar.classList.add('navbar-visible', 'navbar-small');
+            } else {
+                navbar.classList.remove('navbar-visible', 'navbar-small');
+                navbar.classList.add('navbar-hidden', 'navbar-large');
+            }
+
+            const fadeIns = document.querySelectorAll('.fade-in');
+            fadeIns.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    element.classList.add('visible');
+                } else {
+                    element.classList.remove('visible');
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('navHome').addEventListener('click', function() {
+                window.location.href = "Main.html";
+            });
+            document.getElementById('navAbout').addEventListener('click', function() {
+                window.location.href = "Main.html#about";
+            });
+            document.getElementById('navBlogs').addEventListener('click', function() {
+                window.location.href = "Main.html#blogs";
+            });
+            document.getElementById('navGallery').addEventListener('click', function() {
+                window.location.href = "Main.html#gallery";
+            });
+            document.getElementById('navContact').addEventListener('click', function() {
+                window.location.href = "Main.html#contact";
+            });
+        });
+    </script>
+</body>
+</html>

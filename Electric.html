@@ -1,0 +1,224 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>RailFan - Electric Locomotives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="LOGO.png">
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+        }
+        .navbar-hidden {
+            opacity: 0;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .navbar-visible {
+            opacity: 1;
+            transition: opacity 0.5s, transform 0.5s;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-large {
+            transform: scale(2);
+            transition: transform 0.5s;
+        }
+        .navbar-small {
+            transform: scale(1);
+            transition: transform 0.5s;
+        }
+        .pill-effect::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+        .pill-effect:hover::before {
+            transform: scale(1);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="relative overflow-y-auto scroll-smooth bg-neutral-800" id="home">
+
+    <nav class="fixed top-0 left-0 w-full flex justify-between items-center p-4 text-white navbar-hidden navbar-large z-50" id="navbar">
+        <div class="text-4xl font-bold">RailFan</div>
+        <ul class="flex space-x-4 text-2xl" style="pointer-events: auto !important;">
+            <li class="relative pill-effect" id="navHome">
+                <a class="font-bold no-underline text-white hover:text-white" href="Main.html">Home</a>
+            </li>
+            <li class="relative pill-effect" id="navAbout">
+                <a class="font-bold no-underline text-white hover:text-white" href="Main.html#about">About</a>
+            </li>
+            <li class="relative pill-effect" id="navBlogs">
+                <a class="font-bold no-underline text-white hover:text-white" href="Main.html#blogs">Blogs</a>
+            </li>
+            <li class="relative pill-effect" id="navGallery">
+                <a class="font-bold no-underline text-white hover:text-white" href="Main.html#gallery">Gallery</a>
+            </li>
+            <li class="relative pill-effect" id="navContact">
+                <a class="font-bold no-underline text-white hover:text-white" href="Main.html#contact">Contact</a>
+            </li>
+        </ul>
+    </nav>   
+
+    <section class="py-16 relative" id="electric">
+        <div class="container mx-auto px-4 max-w-5xl relative z-10">
+            <h2 class="text-4xl font-bold mb-8 mt-3 text-center text-white"><strong>Electric Locomotives</strong></h2>
+            <p class="text-xl mt-4 text-center text-white">
+                Diesel locomotives revolutionized Indian Railways, with workhorses like the 
+                <strong>WDM-2, WDP-4, and WDG-4</strong> powering both passenger and freight services. While electric traction is replacing them 
+                in many regions, diesel engines remain crucial for <strong>remote routes, heavy haulage, and strategic operations</strong> across 
+                the country. <strong>Work in Progress</strong>
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <!-- Early Diesel Locomotives (1950s–1970s) -->
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WCM-1 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WCM1.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WCM-1</h3>
+                    <p class="text-center text-neutral-800">India's first electric locomotive, paving the way for electrification.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WCM-5 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WCM5.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WCM-5</h3>
+                    <p class="text-center text-neutral-800">A powerful DC locomotive that ruled Mumbai’s electrified tracks.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WAG-1 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAG1.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAG-1</h3>
+                    <p class="text-center text-neutral-800">India’s first electric freight locomotive, setting the standard for cargo haulage.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WAG-4 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAG4.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAG-4</h3>
+                    <p class="text-center text-neutral-800">A rare electric locomotive that contributed to early freight operations.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WAM-1 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAM1.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAM-1</h3>
+                    <p class="text-center text-neutral-800">India's first AC electric passenger locomotive, bringing faster travel.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WAG-5 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAG5.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAG-5</h3>
+                    <p class="text-center text-neutral-800">The workhorse of Indian Railways freight for decades.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WAG-7 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAG7.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAG-7</h3>
+                    <p class="text-center text-neutral-800">A freight powerhouse, still hauling goods across India.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WAP-1 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAP1.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAP-1</h3>
+                    <p class="text-center text-neutral-800">India’s first dedicated passenger electric locomotive.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WAP-3 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAP3.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAP-3</h3>
+                    <p class="text-center text-neutral-800">An experimental high-speed locomotive, ahead of its time.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WAP-4 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAP4.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAP-4</h3>
+                    <p class="text-center text-neutral-800">The most trusted passenger locomotive for decades.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WAP-5 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAP5.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAP-5</h3>
+                    <p class="text-center text-neutral-800">India’s high-speed star, powering Rajdhani and Gatimaan Express.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WAP-7 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAP7.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAP-7</h3>
+                    <p class="text-center text-neutral-800">The king of passenger locomotives, hauling premier trains today.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WAG-9 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAG9.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAG-9</h3>
+                    <p class="text-center text-neutral-800">India’s most powerful freight workhorse for decades.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WAG-12B locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAG12B.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAG-12B</h3>
+                    <p class="text-center text-neutral-800">India’s mightiest freight engine(12000HP), built under Make in India.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="WAG-11 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAG11.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAG-11</h3>
+                    <p class="text-center text-neutral-800">A powerful twin-section freight locomotive designed for heavy cargo hauling.</p>
+                </div>
+                
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 0) {
+                navbar.classList.remove('navbar-hidden', 'navbar-large');
+                navbar.classList.add('navbar-visible', 'navbar-small');
+            } else {
+                navbar.classList.remove('navbar-visible', 'navbar-small');
+                navbar.classList.add('navbar-hidden', 'navbar-large');
+            }
+
+            const fadeIns = document.querySelectorAll('.fade-in');
+            fadeIns.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    element.classList.add('visible');
+                } else {
+                    element.classList.remove('visible');
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('navHome').addEventListener('click', function() {
+                window.location.href = "Main.html";
+            });
+            document.getElementById('navAbout').addEventListener('click', function() {
+                window.location.href = "Main.html#about";
+            });
+            document.getElementById('navBlogs').addEventListener('click', function() {
+                window.location.href = "Main.html#blogs";
+            });
+            document.getElementById('navGallery').addEventListener('click', function() {
+                window.location.href = "Main.html#gallery";
+            });
+            document.getElementById('navContact').addEventListener('click', function() {
+                window.location.href = "Main.html#contact";
+            });
+        });
+    </script>
+</body>
+</html>

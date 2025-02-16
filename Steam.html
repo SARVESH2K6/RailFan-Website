@@ -1,0 +1,206 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>RailFan - Steam Locomotives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="LOGO.png">
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+        }
+        .navbar-hidden {
+            opacity: 0;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .navbar-visible {
+            opacity: 1;
+            transition: opacity 0.5s, transform 0.5s;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-large {
+            transform: scale(2);
+            transition: transform 0.5s;
+        }
+        .navbar-small {
+            transform: scale(1);
+            transition: transform 0.5s;
+        }
+        .pill-effect::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+        .pill-effect:hover::before {
+            transform: scale(1);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="relative overflow-y-auto scroll-smooth bg-neutral-800" id="home">
+
+    <nav class="fixed top-0 left-0 w-full flex justify-between items-center p-4 text-white navbar-hidden navbar-large z-50" id="navbar">
+        <div class="text-4xl font-bold">RailFan</div>
+        <ul class="flex space-x-4 text-2xl" style="pointer-events: auto !important;">
+            <li class="relative pill-effect" id="navHome">
+                <a class="font-bold no-underline text-white hover:text-white" href="Main.html">Home</a>
+            </li>
+            <li class="relative pill-effect" id="navAbout">
+                <a class="font-bold no-underline text-white hover:text-white" href="Main.html#about">About</a>
+            </li>
+            <li class="relative pill-effect" id="navBlogs">
+                <a class="font-bold no-underline text-white hover:text-white" href="Main.html#blogs">Blogs</a>
+            </li>
+            <li class="relative pill-effect" id="navGallery">
+                <a class="font-bold no-underline text-white hover:text-white" href="Main.html#gallery">Gallery</a>
+            </li>
+            <li class="relative pill-effect" id="navContact">
+                <a class="font-bold no-underline text-white hover:text-white" href="Main.html#contact">Contact</a>
+            </li>
+        </ul>
+    </nav>   
+
+    <section class="py-16 relative" id="steam">
+        <div class="container mx-auto px-4 max-w-5xl relative z-10">
+            <h2 class="text-4xl font-bold mb-8 mt-3 text-center text-white"><strong>Steam Locomotives</strong></h2>
+            <p class="text-xl mt-4 text-center text-white">
+                Steam locomotives powered Indian Railways for over a century, with iconic engines like the <strong>Fairy Queen (1855), WP Class, 
+                and YP Class</strong> shaping the country’s railway history. Phased out by the <strong>1990s</strong> in favour of diesel and 
+                electric trains, a few steam engines still operate for <strong>heritage and tourism</strong>, preserving their legacy. 
+                <strong>Work in Progress</strong>
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="Image of a train in a scenic route" class="w-full h-40 object-cover rounded-t-lg" height="250" src="Images/Steam/B.jpg" width="250"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">B class</h3>
+                    <p class="text-center text-neutral-800">The B Class steam locomotive powers the Darjeeling Himalayan Railway, conquering 
+                        steep hills since 1889 and still running today.</p>
+                </div>
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="Image of a train in a scenic route" class="w-full h-40 object-cover rounded-t-lg" height="250" src="Images/Steam/WG.jpg" width="250"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WG class</h3>
+                    <p class="text-center text-neutral-800">The WG class steam locomotive was India's most powerful broad-gauge freight engine, 
+                        serving as the backbone of goods transport from the 1950s to the 1980s.</p>
+                </div>
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="Image of a train in a scenic route" class="w-full h-40 object-cover rounded-t-lg" height="250" src="Images/Steam/WL.jpg" width="250"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WL class</h3>
+                    <p class="text-center text-neutral-800">The WL class steam locomotive was a sleek broad-gauge passenger engine, known for 
+                        hauling prestigious trains like the Frontier Mail in the 1950s. </p>
+                </div>
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="Image of a train in a scenic route" class="w-full h-40 object-cover rounded-t-lg" height="250" src="Images/Steam/WP.jpg" width="250"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WP class</h3>
+                    <p class="text-center text-neutral-800">The WP class steam locomotive was India’s iconic broad-gauge passenger engine, known 
+                        for its speed, power, and service on premium express trains from 1947 to the 1980s.</p>
+                </div>
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="Image of a train in a scenic route" class="w-full h-40 object-cover rounded-t-lg" height="250" src="Images/Steam/X.jpg" width="250"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">X class</h3>
+                    <p class="text-center text-neutral-800">The X class steam locomotive is a powerful rack-and-pinion narrow-gauge engine, still
+                         hauling trains on the Nilgiri Mountain Railway since 1914.</p>
+                </div>
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="Image of a train in a scenic route" class="w-full h-40 object-cover rounded-t-lg" height="250" src="Images/Steam/XD.jpg" width="250"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">XD class</h3>
+                    <p class="text-center text-neutral-800">The XD class steam locomotive was a rugged broad-gauge freight engine, widely used 
+                        for heavy goods transport across India from the 1920s to the 1970s.</p>
+                </div>
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="Image of a train in a scenic route" class="w-full h-40 object-cover rounded-t-lg" height="250" src="Images/Steam/XE.jpg" width="250"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">XE class</h3>
+                    <p class="text-center text-neutral-800">The XE class steam locomotive was one of India's most powerful broad-gauge freight 
+                        engines, built for hauling heavy loads from the 1930s to the 1970s.</p>
+                </div>
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="Image of a train in a scenic route" class="w-full h-40 object-cover rounded-t-lg" height="250" src="Images/Steam/YG.jpg" width="250"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">YG class</h3>
+                    <p class="text-center text-neutral-800">The YG class steam locomotive was a sturdy meter-gauge freight engine, widely used 
+                        across India from the 1950s to the 1990s.</p>
+                </div>
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="Image of a train in a scenic route" class="w-full h-40 object-cover rounded-t-lg" height="250" src="Images/Steam/YP.jpg" width="250"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">YP class</h3>
+                    <p class="text-center text-neutral-800">The YP class steam locomotive was India’s standard meter-gauge passenger engine, 
+                        serving express and mail trains from the 1940s to the 1990s. </p>
+                </div>
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="Image of a train in a scenic route" class="w-full h-40 object-cover rounded-t-lg" height="250" src="Images/Steam/ZB.jpg" width="250"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">ZB class</h3>
+                    <p class="text-center text-neutral-800">The ZB class steam locomotive was a narrow-gauge engine, used on hill railways like 
+                        the Kangra Valley Railway from the 1950s to the 1980s.</p>
+                </div>
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="Image of a train in a scenic route" class="w-full h-40 object-cover rounded-t-lg" height="250" src="Images/Steam/ZE.jpg" width="250"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">ZE class</h3>
+                    <p class="text-center text-neutral-800">The ZE class steam locomotive was a rare narrow-gauge engine, built for light 
+                        passenger and freight services on select Indian hill railways.</p>
+                </div>
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300">
+                    <img alt="Image of a train in a scenic route" class="w-full h-40 object-cover rounded-t-lg" height="250" src="Images/Steam/ZP.jpg" width="250"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">ZP class</h3>
+                    <p class="text-center text-neutral-800">The ZP class steam locomotive was a powerful narrow-gauge engine, designed for 
+                        hauling passenger trains on steep hill railway routes in India. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 0) {
+                navbar.classList.remove('navbar-hidden', 'navbar-large');
+                navbar.classList.add('navbar-visible', 'navbar-small');
+            } else {
+                navbar.classList.remove('navbar-visible', 'navbar-small');
+                navbar.classList.add('navbar-hidden', 'navbar-large');
+            }
+
+            const fadeIns = document.querySelectorAll('.fade-in');
+            fadeIns.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    element.classList.add('visible');
+                } else {
+                    element.classList.remove('visible');
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('navHome').addEventListener('click', function() {
+                window.location.href = "Main.html";
+            });
+            document.getElementById('navAbout').addEventListener('click', function() {
+                window.location.href = "Main.html#about";
+            });
+            document.getElementById('navBlogs').addEventListener('click', function() {
+                window.location.href = "Main.html#blogs";
+            });
+            document.getElementById('navGallery').addEventListener('click', function() {
+                window.location.href = "Main.html#gallery";
+            });
+            document.getElementById('navContact').addEventListener('click', function() {
+                window.location.href = "Main.html#contact";
+            });
+        });
+    </script>
+</body>
+</html>
