@@ -111,7 +111,7 @@
 <body class="relative overflow-y-auto scroll-smooth bg-neutral-800" id="home">
 
     <nav class="fixed top-0 left-0 w-full flex justify-between items-center p-4 text-white navbar-hidden navbar-large z-50" id="navbar">
-        <div class="text-3xl font-bold">RailFan</div>
+       <a href="index.html"><div class="text-3xl font-bold">RailFan</div></a> 
         <ul class="flex space-x-4 text-xl">
             <li class="relative pill-effect" id="navHome">
                 <a class="font-bold no-underline text-white hover:text-white" id="navHome">Home</a>
@@ -122,8 +122,8 @@
             <li class="relative pill-effect" id="navBlogs">
                 <a class="font-bold no-underline text-white hover:text-white" id="navBlogs">Blogs</a>
             </li>
-            <li class="relative pill-effect" id="navGallery">
-                <a class="font-bold no-underline text-white hover:text-white" id="navGallery">Gallery</a>
+            <li class="relative pill-effect" id="navArchives">
+                <a class="font-bold no-underline text-white hover:text-white" id="navArchives">Archives</a>
             </li>
             <li class="relative pill-effect" id="navContact">
                 <a class="font-bold no-underline text-white hover:text-white" id="navContact">Contact</a>
@@ -138,7 +138,7 @@
             <img alt="Three Generations of Indian Railways" class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-1000 opacity-0" id="image3" src="Images/index/image3.jpg"/>
             <img alt="A vintage train station with an old steam engine ready to depart" class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-1000 opacity-0" id="image4" src="Images/index/image4.jpg"/>
             <img alt="A Biodiesel Locomotive" class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-1000 opacity-0" id="image5" src="Images/index/image5.jpg"/>
-            <img alt="A vintage train station with an old steam engine ready to depart" class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-1000 opacity-0" id="image6" src="Images/index/image6.jpg"/>
+            <img alt="A vintage train station with an old steam engine ready to depart" class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-1000 opacity-0" id="image6" src="Images/index/image6.jpeg"/>
 
         </div>
         <h1 class="text-5xl font-bold relative">RailFan</h1>
@@ -263,7 +263,7 @@
                         </a>
                         <a href="Blog3.html" class="bg-white rounded-lg shadow-lg grayscale hover:grayscale-0 p-4 w-64 mx-auto blog-card" data-bg="Images/Blogs/CSMT.jpg">
                             <img alt="Image of CSMT station" class="w-full h-40 object-cover rounded-t-lg" height="150" src="Images/Blogs/CSMT.jpg" width="150"/>
-                            <h3 class="text-xl font-bold mt-4">Historic Train Stations</h3>
+                            <h3 class="text-xl font-bold mt-4">Historic Train Stations of India</h3>
                             <p class="text-black mt-2">Learn about the history and architecture of iconic train stations of India.</p>
                         </a>
                     </div>
@@ -276,11 +276,11 @@
             </div>
         </div>
     </section>
-    <section class="py-16 relative" id="gallery">
+    <section class="py-16 relative" id="archive">
         <div class="container mx-auto px-4 max-w-5xl relative z-10">
-            <h2 class="text-4xl font-bold mb-8 text-center text-white fade-in">Gallery</h2>
+            <h2 class="text-4xl font-bold mb-8 text-center text-white fade-in">Archives</h2>
             <p class="text-xl mt-4 text-center text-white fade-in">
-                The Gallery section of our website showcases the rich diversity of Indian Railways through carefully curated categories.
+                The Archives section of our website showcases the rich diversity of Indian Railways through carefully curated categories.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
                 <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
@@ -408,9 +408,9 @@
                 document.getElementById('blogs').scrollIntoView({ behavior: 'smooth' });
             });
 
-            // Scroll to Gallery
-            document.getElementById('navGallery').addEventListener('click', function() {
-                document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+            // Scroll to Archives
+            document.getElementById('navArchives').addEventListener('click', function() {
+                document.getElementById('archive').scrollIntoView({ behavior: 'smooth' });
             });
 
             // Scroll to Contact

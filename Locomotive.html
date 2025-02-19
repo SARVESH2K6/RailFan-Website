@@ -118,7 +118,7 @@
 <body class="relative overflow-y-auto scroll-smooth bg-neutral-800" id="home">
 
     <nav class="fixed top-0 left-0 w-full flex justify-between items-center p-4 text-white navbar-hidden navbar-large z-50" id="navbar">
-        <div class="text-3xl font-bold">RailFan</div>
+        <a href="index.html"><div class="text-3xl font-bold">RailFan</div></a>
         <ul class="flex space-x-4 text-xl" style="pointer-events: auto !important;">
             <li class="relative pill-effect" id="navHome">
                 <a class="font-bold no-underline text-white hover:text-white" href="index.html">Home</a>
@@ -129,8 +129,8 @@
             <li class="relative pill-effect" id="navBlogs">
                 <a class="font-bold no-underline text-white hover:text-white" href="index.html#blogs">Blogs</a>
             </li>
-            <li class="relative pill-effect" id="navGallery">
-                <a class="font-bold no-underline text-white hover:text-white" href="index.html#gallery">Gallery</a>
+            <li class="relative pill-effect" id="navArchives">
+                <a class="font-bold no-underline text-white hover:text-white" href="index.html#archive">Archives</a>
             </li>
             <li class="relative pill-effect" id="navContact">
                 <a class="font-bold no-underline text-white hover:text-white" href="index.html#contact">Contact</a>
@@ -138,7 +138,7 @@
         </ul>
     </nav>   
 
-    <section class="py-16 relative" id="gallery">
+    <section class="py-16 relative" id="archive">
     <div class="container mx-auto px-4 max-w-5xl relative z-10">
         <h2 class="text-4xl font-bold mb-8 mt-3 text-center text-white"><strong>Locomotives</strong></h2>
         <p class="text-xl mt-4 text-center text-white">
@@ -147,7 +147,7 @@
             network, driving progress and connectivity across the country.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
-            <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 gallery-card" data-bg="Images/Locomotive/Steam.jpg">
+            <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 archive-card" data-bg="Images/Locomotive/Steam.jpg">
                 <img alt="Image of a WAP Locomotive" class="w-full h-40 object-cover grayscale hover:grayscale-0 rounded-t-lg" height="150" src="Images/Locomotive/Steam.jpg" width="150"/>
                 <h3 class="text-2xl font-bold mb-2 text-center">Steam</h3>
                 <p class="text-center text-neutral-800">
@@ -162,7 +162,7 @@
                     </a>
                 </div>
             </div>
-            <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 gallery-card" data-bg="Images/Locomotive/Diesel.jpg">
+            <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 archive-card" data-bg="Images/Locomotive/Diesel.jpg">
                 <img alt="Image of a Tejas Express Train" class="w-full h-40 object-cover grayscale hover:grayscale-0 rounded-t-lg" height="150" src="Images/Locomotive/Diesel.jpg" width="150"/>
                 <h3 class="text-2xl font-bold mb-2 text-center">Diesel</h3>
                 <p class="text-center text-neutral-800">
@@ -177,7 +177,7 @@
                     </a>
                 </div>
             </div>
-            <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 gallery-card" data-bg="Images/Locomotive/electric.jpg">
+            <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 archive-card" data-bg="Images/Locomotive/electric.jpg">
                 <img alt="Image of a train in a scenic route" class="w-full h-40 object-cover grayscale hover:grayscale-0 rounded-t-lg" height="150" src="Images/Locomotive/electric.jpg" width="150"/>
                 <h3 class="text-2xl font-bold mb-2 text-center">Electric</h3>
                 <p class="text-center text-neutral-800">
@@ -230,8 +230,8 @@
             document.getElementById('navBlogs').addEventListener('click', function() {
                 window.location.href = "index.html#blogs";
             });
-            document.getElementById('navGallery').addEventListener('click', function() {
-                window.location.href = "index.html#gallery";
+            document.getElementById('navArchives').addEventListener('click', function() {
+                window.location.href = "index.html#archive";
             });
             document.getElementById('navContact').addEventListener('click', function() {
                 window.location.href = "index.html#contact";
@@ -241,7 +241,7 @@
             const backgroundImageDiv = document.getElementById('background-image');
             const defaultBackground = 'rgba(0, 0, 0, 0.5)'; // Default background color
 
-            document.querySelectorAll('.gallery-card').forEach(card => {
+            document.querySelectorAll('.archive-card').forEach(card => {
                 card.addEventListener('mouseover', function() {
                     const bgImage = this.getAttribute('data-bg');
                     backgroundImageDiv.innerHTML = `<img alt="Blurred background image" class="absolute inset-0 w-full h-full object-cover opacity-50 fade-in" src="${bgImage}"/>`;
@@ -254,7 +254,7 @@
             });
 
             // Reset background when not hovering over any card
-            document.querySelectorAll('.gallery-card').forEach(card => {
+            document.querySelectorAll('.archive-card').forEach(card => {
                 card.addEventListener('mouseleave', function() {
                     backgroundImageDiv.innerHTML = ''; // Clear the image
                     backgroundImageDiv.style.backgroundColor = defaultBackground; // Reset to default background color
