@@ -109,7 +109,8 @@
     </style>
 </head>
 <body class="relative overflow-y-auto scroll-smooth bg-neutral-800" id="home">
-
+    
+<!-- Navbar -->
     <nav class="fixed top-0 left-0 w-full flex justify-between items-center p-4 text-white navbar-hidden navbar-large z-50" id="navbar">
        <a href="index.html"><div class="text-3xl font-bold">RailFan</div></a> 
         <ul class="flex space-x-4 text-xl">
@@ -130,7 +131,8 @@
             </li>
         </ul>
     </nav>
-    
+
+<!-- Home Section -->
     <section class="h-screen bg-cover bg-center flex flex-col justify-center items-center text-white text-center relative" id="home">
         <div class="absolute inset-0 z-0">
             <img alt="A scenic view of a Train in morning Fog." class="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-1000 opacity-1" id="image1" src="Images/index/image1.jpg"/>
@@ -149,6 +151,7 @@
         </a>
     </section>
 
+<!-- About Section -->
     <section class="py-16 bg-neutral-800" id="about">
         <div class="container mx-auto px-4 max-w-5xl">
             <h2 class="text-4xl font-bold mb-8 text-center text-white fade-in">About</h2>
@@ -206,6 +209,7 @@
         </div>
     </section>
 
+<!-- Blogs Section -->
     <section class="py-16 relative" id="blogs">
         <div class="absolute inset-0 z-0" id="background-image">
             <img alt="A blurred image of a train speeding through a scenic landscape" class="absolute inset-0 w-full h-full object-cover opacity-50" height="1080" src="https://storage.googleapis.com/a1aa/image/NNv8u1PV6EreXNIY5VGSLl9nso7q_BKg-B0gO1xq4ow.jpg" width="1920"/>
@@ -220,6 +224,7 @@
                             <h3 class="text-xl font-bold mt-4">The Majesty of Steam Locomotives</h3>
                             <p class="text-black mt-2">Explore the history and charm of steam locomotives that once ruled the Indian railroads.</p>
                         </a>
+                        <!-- Redirects -->
                         <a href="Blog2.html" class="bg-white rounded-lg shadow-lg grayscale hover:grayscale-0  p-4 w-64 mx-auto blog-card" data-bg="Images/Blogs/RRTS.jpg">
                             <img alt="Image of a High speed Train in India" class="w-full h-40 object-cover rounded-t-lg" height="150" src="Images/Blogs/RRTS.jpg" width="150"/>
                             <h3 class="text-xl font-bold mt-4">Modern Marvels: High-Speed Trains</h3>
@@ -244,6 +249,7 @@
                             <h3 class="text-xl font-bold mt-4">Top 10 Most Scenic Train Journeys in India</h3>
                             <p class="text-black mt-2">From the majestic Himalayas to coastal Konkan routes, discover breathtaking train journeys that offer stunning views and unforgettable experiences.</p>
                         </a>
+                        <!-- Redirects -->
                         <a href="Blog4.html" class="bg-white rounded-lg shadow-lg grayscale hover:grayscale-0 p-4 w-64 mx-auto blog-card" data-bg="Images/Blogs/Golden Chariot.jpg">
                             <img alt="Image of Golden Chariot" class="w-full h-40 object-cover rounded-t-lg" height="150" src="Images/Blogs/Golden Chariot.jpg" width="150"/>
                             <h3 class="text-xl font-bold mt-4">Luxury Trains of India</h3>
@@ -258,11 +264,13 @@
                             <h3 class="text-xl font-bold mt-4">Hidden Gems: Underrated Railway Stations in India You Must Visit</h3>
                             <p class="text-black mt-2">Beyond major junctions, explore lesser-known but architecturally stunning and historically significant railway stations across the country.</p>
                         </a>
+                        <!-- Redirects -->
                         <a href="Blog1.html" class="bg-white rounded-lg shadow-lg grayscale hover:grayscale-0 p-4 w-64 mx-auto blog-card" data-bg="Images/Blogs/AI.png">
                             <img alt="Image of a Railroad Junction" class="w-full h-40 object-cover rounded-t-lg" height="150" src="Images/Blogs/AI.png" width="150"/>
                             <h3 class="text-xl font-bold mt-4">The Future of Indian Railways: Bullet Trains, AI, and Sustainability</h3>
                             <p class="text-black mt-2">From Vande Bharat Express to upcoming bullet trains, explore how technology and sustainability are shaping the future of Indian Railways.</p>
                         </a>
+                        <!-- Redirects -->
                         <a href="Blog3.html" class="bg-white rounded-lg shadow-lg grayscale hover:grayscale-0 p-4 w-64 mx-auto blog-card" data-bg="Images/Blogs/CSMT.jpg">
                             <img alt="Image of CSMT station" class="w-full h-40 object-cover rounded-t-lg" height="150" src="Images/Blogs/CSMT.jpg" width="150"/>
                             <h3 class="text-xl font-bold mt-4">Historic Train Stations of India</h3>
@@ -279,6 +287,7 @@
         </div>
     </section>
 
+<!-- Archives Section -->
     <section class="py-16 relative" id="archive">
         <div class="container mx-auto px-4 max-w-5xl relative z-10">
             <h2 class="text-4xl font-bold mb-8 text-center text-white fade-in">Archives</h2>
@@ -342,6 +351,7 @@
         </div>
     </section>
 
+<!-- Contact Section -->
     <section class="bg-gray-200 py-8" id="contact">
         <p class="text-md text-center text-black mb-4">
             Note: This site is not officially affiliated with Indian Railways. The official web site of Indian Railways is: 
@@ -369,8 +379,6 @@
         <p class="text-black text-center mt-6">Copyright © 2025, RailFan</p><br>
         <p class="text-black text-center mt-6">Created by Sarvesh Mudaliar</p>
     </section>
-</body>
-</html>
     <script>
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
@@ -393,6 +401,7 @@
             });
         });
 
+        //Arrow click
         document.getElementById('scrollToAbout').addEventListener('click', function() {
             document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
         });
