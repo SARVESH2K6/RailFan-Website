@@ -1,0 +1,490 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>RailFan - Electric Locomotives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="LOGO.png">
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+        }
+        .navbar-hidden {
+            opacity: 0;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .navbar-visible {
+            opacity: 1;
+            transition: opacity 0.5s, transform 0.5s;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-large {
+            transform: scale(2);
+            transition: transform 0.5s;
+        }
+        .navbar-small {
+            transform: scale(1);
+            transition: transform 0.5s;
+        }
+        .pill-effect::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+        .pill-effect:hover::before {
+            transform: scale(1);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .modal {
+            display: none;
+            position: absolute;
+            width: 300px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+            z-index: 50; /* Increased z-index */
+        }
+        .modal.active {
+            display: block;
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="relative overflow-y-auto scroll-smooth bg-neutral-800" id="home">
+
+    <nav class="fixed top-0 left-0 w-full flex justify-between items-center p-4 text-white navbar-hidden navbar-large z-50" id="navbar">
+        <a href="../../index.html"><div class="text-3xl font-bold">RailFan</div></a>
+        <ul class="flex space-x-4 text-xl" style="pointer-events: auto !important;">
+            <li class="relative pill-effect" id="navHome">
+                <a class="font-bold no-underline text-white hover:text-white" href="../../index.html">Home</a>
+            </li>
+            <li class="relative pill-effect" id="navAbout">
+                <a class="font-bold no-underline text-white hover:text-white" href="../../index.html#about">About</a>
+            </li>
+            <li class="relative pill-effect" id="navBlogs">
+                <a class="font-bold no-underline text-white hover:text-white" href="../../index.html#blogs">Blogs</a>
+            </li>
+            <li class="relative pill-effect" id="navArchives">
+                <a class="font-bold no-underline text-white hover:text-white" href="../../index.html#archive">Archives</a>
+            </li>
+            <li class="relative pill-effect" id="navContact">
+                <a class="font-bold no-underline text-white hover:text-white" href="../../index.html#contact">Contact</a>
+            </li>
+        </ul>
+    </nav>   
+
+    <section class="py-16 relative" id="electric">
+        <div class="container mx-auto px-4 max-w-5xl relative z-10">
+            <h2 class="text-4xl font-bold mb-8 mt-3 text-center text-white"><strong>Electric Locomotives</strong></h2>
+            <p class="text-xl mt-4 text-center text-white">
+                Electric locomotives are the backbone of modern rail transport, offering <strong>high efficiency, speed, and environmental benefits</strong> 
+                over diesel and steam engines. Used for both <strong>passenger and freight services</strong>, they operate on overhead electric 
+                lines, providing <strong>higher acceleration, reduced maintenance costs, and lower emissions</strong>. With advancements like
+                <strong>WAP-7 for high-speed trains</strong> and <strong>WAG-12B for heavy freight</strong>, Indian Railways is rapidly expanding 
+                its electric fleet to enhance connectivity and sustainability.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 relative" onclick="openModal('WCM1')">
+                    <img alt="WCM-1 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WCM1.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WCM-1</h3>
+                    <p class="text-center text-neutral-800">India's first electric locomotive, paving the way for electrification.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 relative" onclick="openModal('WCM5')">
+                    <img alt="WCM-5 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WCM5.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WCM-5</h3>
+                    <p class="text-center text-neutral-800">A powerful DC locomotive that ruled Mumbai’s electrified tracks.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 relative" onclick="openModal('WAG1')">
+                    <img alt="WAG-1 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAG1.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAG-1</h3>
+                    <p class="text-center text-neutral-800">India’s first electric freight locomotive, setting the standard for cargo haulage.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 relative" onclick="openModal('WAG4')">
+                    <img alt="WAG-4 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAG4.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAG-4</h3>
+                    <p class="text-center text-neutral-800">A rare electric locomotive that contributed to early freight operations.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 relative" onclick="openModal('WAM1')">
+                    <img alt="WAM-1 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAM1.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAM-1</h3>
+                    <p class="text-center text-neutral-800">India's first AC electric passenger locomotive, bringing faster travel.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 relative" onclick="openModal('WAG5')">
+                    <img alt="WAG-5 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAG5.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAG-5</h3>
+                    <p class="text-center text-neutral-800">The workhorse of Indian Railways freight for decades.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 relative" onclick="openModal('WAG7')">
+                    <img alt="WAG-7 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAG7.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAG-7</h3>
+                    <p class="text-center text-neutral-800">A freight powerhouse, still hauling goods across India.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 relative" onclick="openModal('WAP1')">
+                    <img alt="WAP-1 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAP1.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAP-1</h3>
+                    <p class="text-center text-neutral-800">India’s first dedicated passenger electric locomotive.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 relative" onclick="openModal('WAP3')">
+                    <img alt="WAP-3 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAP3.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAP-3</h3>
+                    <p class="text-center text-neutral-800">An experimental high-speed locomotive, ahead of its time.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 relative" onclick="openModal('WAP4')">
+                    <img alt="WAP-4 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAP4.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAP-4</h3>
+                    <p class="text-center text-neutral-800">The most trusted passenger locomotive for decades.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 relative" onclick="openModal('WAP5')">
+                    <img alt="WAP-5 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAP5.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAP-5</h3>
+                    <p class="text-center text-neutral-800">India’s high-speed star, powering Rajdhani and Gatimaan Express.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 relative " onclick="openModal('WAP7')">
+                    <img alt="WAP-7 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAP7.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAP-7</h3>
+                    <p class="text-center text-neutral-800">The king of passenger locomotives, hauling premier trains today.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 relative" onclick="openModal('WAG9')">
+                    <img alt="WAG-9 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAG9.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAG-9</h3>
+                    <p class="text-center text-neutral-800">India’s most powerful freight workhorse for decades.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 relative" onclick="openModal('WAG12B')">
+                    <img alt="WAG-12B locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAG12B.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAG-12B</h3>
+                    <p class="text-center text-neutral-800">India’s mightiest freight engine(12000HP), built under Make in India.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 relative" onclick="openModal('WAG11')">
+                    <img alt="WAG-11 locomotive" class="w-full h-40 object-cover rounded-t-lg" src="Images/Electric/WAG11.jpg"/>
+                    <h3 class="text-2xl font-bold mb-2 text-center">WAG-11</h3>
+                    <p class="text-center text-neutral-800">A powerful twin-section freight locomotive designed for heavy cargo hauling.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <div id="locomotiveModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-gray-200 p-6 rounded-lg shadow-lg w-100 relative">
+            <button><i onclick="closeModal()" class="fas fa-times-circle fa-lg absolute top-2 right-2" style="color: #E53935;"></i></button>
+            <!-- Locomotive Image -->
+            <img id="locoImage" src="" alt="Locomotive Image" class="w-full h-60 object-cover rounded-lg mb-4">
+            
+            <!-- Locomotive Name -->
+            <h2 id="locoName" class="text-2xl font-bold text-center"></h2>
+            
+            <!-- Locomotive Description -->
+            <p id="locoDescription" class="text-black justify-center text-center"></p>
+            
+            <!-- Technical Details -->
+             <div class="bg-amber-50 shadow-md rounded-lg">
+                <ul class="p-4 mt-4 space-y-2 text-sm text-black">
+                    <li><strong>Manufacturer:</strong> <span id="locoManufacturer"></span></li>
+                    <li><strong>Year Introduced:</strong> <span id="locoYear"></span></li>
+                    <li><strong>Years Active:</strong> <span id="locoActive"></span></li>
+                    <li><strong>Horsepower:</strong> <span id="locoHP"></span></li>
+                    <li><strong>Max Speed:</strong> <span id="locoSpeed"></span></li>
+                    <li><strong>Type:</strong> <span id="locoType"></span></li>
+                    <li><strong>Railway Zones:</strong> <span id="locoZones"></span></li>
+                </ul>
+             </div>
+            
+            <!-- Close Button -->
+            <div class="text-center mt-4">
+                <button onclick="closeModal()" class="bg-red-600 text-white px-4 py-2 rounded-md">Close</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 0) {
+                navbar.classList.remove('navbar-hidden', 'navbar-large');
+                navbar.classList.add('navbar-visible', 'navbar-small');
+            } else {
+                navbar.classList.remove('navbar-visible', 'navbar-small');
+                navbar.classList.add('navbar-hidden', 'navbar-large');
+            }
+
+            const fadeIns = document.querySelectorAll('.fade-in');
+            fadeIns.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    element.classList.add('visible');
+                } else {
+                    element.classList.remove('visible');
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('navHome').addEventListener('click', function() {
+                window.location.href = "../../index.html";
+            });
+            document.getElementById('navAbout').addEventListener('click', function() {
+                window.location.href = "../../index.html#about";
+            });
+            document.getElementById('navBlogs').addEventListener('click', function() {
+                window.location.href = "../../index.html#blogs";
+            });
+            document.getElementById('navArchives').addEventListener('click', function() {
+                window.location.href = "../../index.html#archive";
+            });
+            document.getElementById('navContact').addEventListener('click', function() {
+                window.location.href = "../../index.html#contact";
+            });
+            });
+
+            const locomotiveData = {
+            "WAP7": {
+                image: "Images/Electric/WAP7.jpg",
+                name: "WAP-7",
+                description: "It is the backbone of India's electric passenger fleet.",
+                manufacturer: "Chittaranjan Locomotive Works (CLW)",
+                year: "2000",
+                years_active: "2000–Present",
+                horsepower: "6,125 HP",
+                speed: "140 km/h",
+                type: "Passenger",
+                zones: "All Indian Railway Zones"
+            },
+            "WAP1": {
+                image: "Images/Electric/WAP1.jpg",
+                name: "WAP-1",
+                description: "India's first dedicated electric passenger locomotive.",
+                manufacturer: "Chittaranjan Locomotive Works (CLW)",
+                year: "1980",
+                years_active: "1980–Present",
+                horsepower: "3,850 HP",
+                speed: "120 km/h",
+                type: "Passenger",
+                zones: "All Indian Railway Zones"
+            },
+
+            "WAP4": {
+                image: "Images/Electric/WAP4.jpg",
+                name: "WAP-4",
+                description: "A reliable workhorse for express and superfast trains.",
+                manufacturer: "Chittaranjan Locomotive Works (CLW)",
+                year: "1994",
+                years_active: "1994–Present",
+                horsepower: "5,000 HP",
+                speed: "130 km/h",
+                type: "Passenger",
+                zones: "All Indian Railway Zones"
+            },
+            "WCM1": {
+                image: "Images/Electric/WCM1.jpg",
+                name: "WCM-1",
+                description: "India's first AC/DC electric locomotive, introduced for Mumbai-Pune routes.",
+                manufacturer: "English Electric, UK",
+                year: "1954",
+                years_active: "1954–2000s",
+                horsepower: "2,610 HP",
+                speed: "105 km/h",
+                type: "Passenger",
+                zones: "Central Railway"
+            },
+
+            "WCM5": {
+                image: "Images/Electric/WCM5.jpg",
+                name: "WCM-5",
+                description: "A more powerful variant of WCM-1, used for express trains.",
+                manufacturer: "Chittaranjan Locomotive Works (CLW)",
+                year: "1962",
+                years_active: "1962–2000s",
+                horsepower: "2,870 HP",
+                speed: "110 km/h",
+                type: "Passenger",
+                zones: "Central Railway"
+            },
+
+            "WAG1": {
+                image: "Images/Electric/WAG1.jpg",
+                name: "WAG-1",
+                description: "India's first dedicated electric freight locomotive, built for heavy haulage.",
+                manufacturer: "European Consortium (Hitachi, Alstom, etc.)",
+                year: "1963",
+                years_active: "1963–1990s",
+                horsepower: "2,900 HP",
+                speed: "80 km/h",
+                type: "Freight",
+                zones: "Various Freight Corridors"
+            },
+
+            "WAG4": {
+                image: "Images/Electric/WAG4.jpg",
+                name: "WAG-4",
+                description: "An improved freight locomotive with better hauling capacity.",
+                manufacturer: "Chittaranjan Locomotive Works (CLW)",
+                year: "1970",
+                years_active: "1970–2000s",
+                horsepower: "4,050 HP",
+                speed: "100 km/h",
+                type: "Freight",
+                zones: "Various Freight Corridors"
+            },
+            "WAM1": {
+                image: "Images/Electric/WAM1.jpg",
+                name: "WAM-1",
+                description: "India's first AC electric locomotive, marking the shift to 25 kV AC traction.",
+                manufacturer: "European Consortium (Alstom, SNCF, etc.)",
+                year: "1959",
+                years_active: "1959–2000s",
+                horsepower: "3,850 HP",
+                speed: "120 km/h",
+                type: "Passenger",
+                zones: "All Indian Railway Zones"
+            },
+            "WAG5": {
+                image: "Images/Electric/WAG5.jpg",
+                name: "WAG-5",
+                description: "One of the most widely used electric freight locomotives in India.",
+                manufacturer: "Chittaranjan Locomotive Works (CLW)",
+                year: "1980",
+                years_active: "1980–Present",
+                horsepower: "3,850 HP",
+                speed: "100 km/h",
+                type: "Freight",
+                zones: "All Indian Railway Zones"
+            },
+
+            "WAG7": {
+                image: "Images/Electric/WAG7.jpg",
+                name: "WAG-7",
+                description: "A reliable and powerful freight locomotive used extensively across India.",
+                manufacturer: "Chittaranjan Locomotive Works (CLW)",
+                year: "1992",
+                years_active: "1992–Present",
+                horsepower: "5,000 HP",
+                speed: "100 km/h",
+                type: "Freight",
+                zones: "All Indian Railway Zones"
+            },
+
+            "WAP3": {
+                image: "Images/Electric/WAP3.jpg",
+                name: "WAP-3",
+                description: "An experimental high-speed passenger locomotive with limited production.",
+                manufacturer: "Chittaranjan Locomotive Works (CLW)",
+                year: "1990s",
+                years_active: "1990s",
+                horsepower: "4,600 HP",
+                speed: "130 km/h",
+                type: "Passenger",
+                zones: "Limited Use"
+            },
+
+            "WAP5": {
+                image: "Images/Electric/WAP5.jpg",
+                name: "WAP-5",
+                description: "India’s first high-speed electric locomotive, known for hauling premium trains.",
+                manufacturer: "Chittaranjan Locomotive Works (CLW)",
+                year: "1995",
+                years_active: "1995–Present",
+                horsepower: "5,500 HP",
+                speed: "160 km/h",
+                type: "Passenger",
+                zones: "All Indian Railway Zones"
+            },
+
+            "WAG9": {
+                image: "Images/Electric/WAG9.jpg",
+                name: "WAG-9",
+                description: "India’s most powerful freight locomotive, designed for heavy haulage.",
+                manufacturer: "Chittaranjan Locomotive Works (CLW)",
+                year: "1998",
+                years_active: "1998–Present",
+                horsepower: "6,350 HP",
+                speed: "100 km/h",
+                type: "Freight",
+                zones: "All Indian Railway Zones"
+            },
+
+            "WAG12B": {
+                image: "Images/Electric/WAG12B.jpg",
+                name: "WAG-12B",
+                description: "India’s most powerful freight locomotive, designed for Dedicated Freight Corridors.",
+                manufacturer: "Alstom",
+                year: "2019",
+                years_active: "2019–Present",
+                horsepower: "12,000 HP",
+                speed: "120 km/h",
+                type: "Freight",
+                zones: "Dedicated Freight Corridors"
+            },
+
+            "WAG11": {
+                image: "Images/Electric/WAG11.jpg",
+                name: "WAG-11",
+                description: "A high-power freight locomotive developed for heavy haul operations.",
+                manufacturer: "Chittaranjan Locomotive Works (CLW)",
+                year: "2020",
+                years_active: "2020–Present",
+                horsepower: "9,000 HP",
+                speed: "120 km/h",
+                type: "Freight",
+                zones: "Dedicated Freight Corridors"
+            }
+
+        };
+
+        function openModal(loco) {
+            const locoInfo = locomotiveData[loco];
+            if (!locoInfo) return;
+
+            document.getElementById("locoImage").src = locoInfo.image;
+            document.getElementById("locoName").innerText = locoInfo.name;
+            document.getElementById("locoDescription").innerText = locoInfo.description;
+            document.getElementById("locoManufacturer").innerText = locoInfo.manufacturer;
+            document.getElementById("locoYear").innerText = locoInfo.year;
+            document.getElementById("locoActive").innerText = locoInfo.years_active;
+            document.getElementById("locoHP").innerText = locoInfo.horsepower;
+            document.getElementById("locoSpeed").innerText = locoInfo.speed;
+            document.getElementById("locoType").innerText = locoInfo.type;
+            document.getElementById("locoZones").innerText = locoInfo.zones;
+
+            document.getElementById("locomotiveModal").classList.remove("hidden");
+        }
+
+        function closeModal() {
+            document.getElementById("locomotiveModal").classList.add("hidden");
+        }
+    </script>
+</body>
+</html>

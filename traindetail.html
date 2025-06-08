@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>RailFan - Train Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="LOGO.png">
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+        }
+        .navbar-hidden {
+            opacity: 0;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .navbar-visible {
+            opacity: 1;
+            transition: opacity 0.5s, transform 0.5s;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-large {
+            transform: scale(2);
+            transition: transform 0.5s;
+        }
+        .navbar-small {
+            transform: scale(1);
+            transition: transform 0.5s;
+        }
+        .pill-effect::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+        .pill-effect:hover::before {
+            transform: scale(1);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="relative overflow-y-auto scroll-smooth bg-neutral-800" id="home">
+
+    <nav class="fixed top-0 left-0 w-full flex justify-between items-center p-4 text-white navbar-hidden navbar-large z-50" id="navbar">
+        <a href="index.html"><div class="text-3xl font-bold">RailFan</div></a>
+        <ul class="flex space-x-4 text-xl" style="pointer-events: auto !important;">
+            <li class="relative pill-effect" id="navHome">
+                <a class="font-bold no-underline text-white hover:text-white" href="index.html">Home</a>
+            </li>
+            <li class="relative pill-effect" id="navAbout">
+                <a class="font-bold no-underline text-white hover:text-white" href="index.html#about">About</a>
+            </li>
+            <li class="relative pill-effect" id="navBlogs">
+                <a class="font-bold no-underline text-white hover:text-white" href="index.html#blogs">Blogs</a>
+            </li>
+            <li class="relative pill-effect" id="navArchives">
+                <a class="font-bold no-underline text-white hover:text-white" href="index.html#archive">Archives</a>
+            </li>
+            <li class="relative pill-effect" id="navContact">
+                <a class="font-bold no-underline text-white hover:text-white" href="index.html#contact">Contact</a>
+            </li>
+            <li class="relative pill-effect">
+                <a class="font-bold no-underline text-white hover:text-white" href="Train.html">All Trains</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="py-32 relative">
+        <div class="container mx-auto px-4 max-w-5xl relative z-10">
+            <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg">
+                <div class="mb-4">
+                    <a href="Train.html" class="text-blue-600 hover:text-blue-800">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to All Trains
+                    </a>
+                </div>
+                
+                <div id="trainContent">
+                    <!-- Train content will be loaded here -->
+                    <div class="text-center py-8">
+                        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto"></div>
+                        <p class="mt-4">Loading train information...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Train data object - you can expand this with more details for each train
+        const trainDatabase = {
+            "vande-bharat": {
+                name: "Vande Bharat Express",
+                image: "Images/Train/VandeBharat.jpg",
+                description: "India's first indigenously built semi-high-speed train, known for its sleek design, modern amenities, and rapid acceleration, revolutionizing rail travel.",
+                fullDescription: `<p class="mb-4">The Vande Bharat Express, also known as Train 18, is India's first indigenously built semi-high-speed train. Manufactured by the Integral Coach Factory (ICF) in Chennai, it represents a significant milestone in Indian Railways' journey toward modernization and self-reliance.</p>
+                <p class="mb-4">Introduced in 2019, this train can reach speeds of up to 160 km/h, making it one of the fastest trains in India. Its remarkable acceleration capability allows it to reach 100 km/h in just 52 seconds, significantly reducing travel time between major cities.</p>
+                <p class="mb-4">The train features a sleek, aerodynamic design with a distinctive white and blue exterior. Its advanced engineering includes undercarriage-mounted propulsion systems, eliminating the need for a locomotive and allowing for operation from either end.</p>`,
+                features: [
+                    "Maximum operational speed of 160 km/h",
+                    "0-100 km/h acceleration in just 52 seconds",
+                    "Automatic sliding doors and retractable footsteps",
+                    "Fully sealed gangways for reduced noise and vibration",
+                    "GPS-based passenger information system",
+                    "Onboard WiFi and infotainment",
+                    "Bio-vacuum toilets and touch-free amenities",
+                    "Rotatable seats in Executive Class",
+                    "CCTV surveillance and emergency talk-back units",
+                    "Intelligent air conditioning system"
+                ],
+                specifications: [
+                    ["Manufacturer", "Integral Coach Factory (ICF), Chennai"],
+                    ["Train Configuration", "16 coaches (2 Executive Class, 14 Chair Car)"],
+                    ["Seating Capacity", "Around 1,128 passengers"],
+                    ["Maximum Speed", "180 km/h (design), 160 km/h (operational)"],
+                    ["Power", "16,000 HP (distributed)"],
+                    ["Traction", "Electric (25 kV)"],
+                    ["Year Introduced", "2019"],
+                    ["Manufacturing Cost", "Approximately ₹100 crore per rake"]
+                ],
+                routes: [
+                    "New Delhi - Varanasi",
+                    "New Delhi - Shri Mata Vaishno Devi Katra",
+                    "Mumbai Central - Gandhinagar Capital",
+                    "Secunderabad - Visakhapatnam",
+                    "Chennai - Mysuru",
+                    "And many more routes across India"
+                ],
+                gallery: [
+                    "Images/Train/VandeBharat.jpg"
+                ]
+            },
+            "gatimaan": {
+                name: "Gatimaan Express",
+                image: "Images/Train/Gatimaan.jpg",
+                description: "India's first semi-high-speed train, offering luxurious seating, modern amenities, and a top speed of 160 km/h, making it the fastest train in the country.",
+                fullDescription: `<p class="mb-4">The Gatimaan Express is India's first semi-high-speed train service, introduced on April 5, 2016. It initially operated between Delhi and Agra, covering the 188 km distance in approximately 100 minutes at a maximum speed of 160 km/h.</p>
+                <p class="mb-4">This premium train service was conceived to provide a faster and more comfortable alternative for tourists traveling to Agra to visit the Taj Mahal and other historical monuments. Since its inception, it has set new standards for passenger comfort and travel experience.</p>
+                <p class="mb-4">The Gatimaan Express features modern coaches manufactured by the Rail Coach Factory in Kapurthala. These coaches are equipped with state-of-the-art amenities and advanced safety systems to ensure a comfortable and secure journey.</p>`,
+                features: [
+                    "Maximum operational speed of 160 km/h",
+                    "Onboard entertainment system",
+                    "Hostesses providing catering services",
+                    "Bio-toilets in all coaches",
+                    "Automatic fire alarm system",
+                    "Emergency braking system",
+                    "Passenger information system",
+                    "Executive class and chair car accommodation",
+                    "Complimentary meals and beverages",
+                    "WiFi connectivity"
+                ],
+                specifications: [
+                    ["Manufacturer", "Rail Coach Factory, Kapurthala"],
+                    ["Train Configuration", "8 coaches (2 Executive Class, 6 Chair Car)"],
+                    ["Seating Capacity", "Approximately 736 passengers"],
+                    ["Maximum Speed", "160 km/h"],
+                    ["Distance Covered", "Delhi to Agra (188 km)"],
+                    ["Travel Time", "About 100 minutes"],
+                    ["Traction", "Electric (WAP-5 locomotive)"],
+                    ["Year Introduced", "2016"]
+                ],
+                routes: [
+                    "Delhi - Agra",
+                    "Jhansi - Gwalior - Agra - Delhi"
+                ],
+                gallery: [
+                    "Images/Train/Gatimaan.jpg","Images/Train/Chennai.jpg"
+                ]
+            },
+            "rajdhani": {
+                name: "Rajdhani Express",
+                image: "Images/Train/Rajdhani.jpg",
+                description: "India's premier long-distance train, offering high-speed connectivity, air-conditioned coaches, and complimentary meals, linking the capital with major cities.",
+                fullDescription: `<p class="mb-4">The Rajdhani Express is a series of premium passenger trains operated by Indian Railways, connecting the national capital, New Delhi, with the capitals or major cities of various states across India. The first Rajdhani Express was introduced on March 1, 1969, between New Delhi and Howrah (Kolkata).</p>
+                <p class="mb-4">These trains are among the fastest and most prestigious in India, with high priority on the railway network and few stops en route to ensure rapid transit between destinations. The name "Rajdhani" means "Capital" in several Indian languages, reflecting their purpose of connecting the national capital with state capitals.</p>
+                <p class="mb-4">All Rajdhani Express trains are fully air-conditioned and offer multiple classes of travel including First AC, Second AC, and Third AC. They are known for their punctuality, speed, and excellent onboard service, including complimentary meals included in the fare.</p>`,
+                features: [
+                    "Fully air-conditioned coaches",
+                    "Complimentary meals included in fare",
+                    "Limited stops for faster travel",
+                    "Bedding provided in sleeper classes",
+                    "Priority on Indian Railways network",
+                    "Multiple classes of accommodation",
+                    "Pantry car for fresh meal preparation",
+                    "Charging ports for electronic devices",
+                    "Clean and hygienic toilets",
+                    "Efficient housekeeping services"
+                ],
+                specifications: [
+                    ["Manufacturer", "Various production units of Indian Railways"],
+                    ["Coach Configuration", "18-24 coaches (varies by route)"],
+                    ["Travel Classes", "First AC, Second AC, Third AC"],
+                    ["Maximum Speed", "130-140 km/h"],
+                    ["Locomotive", "WAP-7 or WAP-5 electric locomotives"],
+                    ["Traction", "Electric"],
+                    ["Year Introduced", "1969 (First Rajdhani)"]
+                ],
+                routes: [
+                    "New Delhi - Mumbai",
+                    "New Delhi - Kolkata",
+                    "New Delhi - Chennai",
+                    "New Delhi - Bengaluru",
+                    "New Delhi - Bhubaneswar",
+                    "New Delhi - Jammu Tawi",
+                    "New Delhi - Thiruvananthapuram",
+                    "New Delhi - Dibrugarh",
+                    "And several other routes connecting state capitals"
+                ],
+                gallery: [
+                    "Images/Train/Rajdhani.jpg","Images/Train/Humsafar.jpg"
+                ]
+            },
+            // Add more trains here...
+        };
+
+        // Function to get URL parameter
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Function to generate related trains
+        function getRelatedTrains(currentTrain) {
+            let relatedHtml = '<div class="mt-12"><h3 class="text-2xl font-bold mb-4">Related Trains</h3><div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">';
+            
+            let count = 0;
+            for (const trainId in trainDatabase) {
+                if (trainId !== currentTrain && count < 3) {
+                    const train = trainDatabase[trainId];
+                    relatedHtml += `
+                        <a href="traindetail.html?train=${trainId}" class="bg-gray-100 hover:bg-gray-200 rounded-lg overflow-hidden no-underline">
+                            <img src="${train.image}" class="w-full h-32 object-cover" alt="${train.name}">
+                            <div class="p-3">
+                                <h4 class="font-bold text-gray-800">${train.name}</h4>
+                            </div>
+                        </a>
+                    `;
+                    count++;
+                }
+            }
+            relatedHtml += '</div></div>';
+            return relatedHtml;
+        }
+
+        // Load train content
+        function loadTrainContent() {
+            const trainId = getUrlParameter('train');
+            const trainContentDiv = document.getElementById('trainContent');
+            
+            if (trainId && trainDatabase[trainId]) {
+                const train = trainDatabase[trainId];
+                
+                // Set page title
+                document.title = `RailFan - ${train.name}`;
+                
+                // Generate HTML content
+                let html = `
+                    <h1 class="text-4xl font-bold mb-6">${train.name}</h1>
+                    <div class="mb-8">
+                        <img src="${train.image}" alt="${train.name}" class="w-full h-96 object-cover rounded-lg shadow-lg">
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold mb-4">Overview</h2>
+                        ${train.fullDescription}
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h2 class="text-3xl font-bold mb-4">Key Features</h2>
+                            <ul class="list-disc pl-6 space-y-2">
+                                ${train.features.map(feature => `<li>${feature}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h2 class="text-3xl font-bold mb-4">Technical Specifications</h2>
+                            <table class="w-full border-collapse">
+                                <tbody>
+                                    ${train.specifications.map(spec => `
+                                        <tr class="border-b border-gray-200">
+                                            <td class="py-2 font-bold">${spec[0]}</td>
+                                            <td class="py-2">${spec[1]}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="my-8">
+                        <h2 class="text-3xl font-bold mb-4">Popular Routes</h2>
+                        <ul class="list-disc pl-6 space-y-2">
+                            ${train.routes.map(route => `<li>${route}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    ${getRelatedTrains(trainId)}
+                `;
+                
+                trainContentDiv.innerHTML = html;
+            } else {
+                trainContentDiv.innerHTML = `
+                    <div class="text-center py-12">
+                        <h1 class="text-4xl font-bold mb-4">Train Not Found</h1>
+                        <p class="mb-8">Sorry, we couldn't find information about the requested train.</p>
+                        <a href="Train.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Return to All Trains
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        // Handle navbar animation
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 0) {
+                navbar.classList.remove('navbar-hidden', 'navbar-large');
+                navbar.classList.add('navbar-visible', 'navbar-small');
+            } else {
+                navbar.classList.remove('navbar-visible', 'navbar-small');
+                navbar.classList.add('navbar-hidden', 'navbar-large');
+            }
+
+            const fadeIns = document.querySelectorAll('.fade-in');
+            fadeIns.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    element.classList.add('visible');
+                } else {
+                    element.classList.remove('visible');
+                }
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTrainContent();
+            
+            // Navigation handling
+            document.getElementById('navHome').addEventListener('click', function() {
+                window.location.href = "index.html";
+            });
+            document.getElementById('navAbout').addEventListener('click', function() {
+                window.location.href = "index.html#about";
+            });
+            document.getElementById('navBlogs').addEventListener('click', function() {
+                window.location.href = "index.html#blogs";
+            });
+            document.getElementById('navArchives').addEventListener('click', function() {
+                window.location.href = "index.html#archive";
+            });
+            document.getElementById('navContact').addEventListener('click', function() {
+                window.location.href = "index.html#contact";
+            });
+        });
+    </script>
+</body>
+</html>
