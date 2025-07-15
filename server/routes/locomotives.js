@@ -2,17 +2,19 @@ const express = require('express');
 const router = express.Router();
 const Locomotive = require('../models/Locomotive');
 
-// Get all locomotives
+// Get all locomotives, or filter by type
 router.get('/', async (req, res) => {
   try {
-    const locomotives = await Locomotive.find();
+    const filter = {};
+    if (req.query.type) filter.type = req.query.type.toLowerCase();
+    const locomotives = await Locomotive.find(filter);
     res.json(locomotives);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
-// Get locomotives by type
+// Get locomotives by type (legacy route)
 router.get('/type/:type', async (req, res) => {
   try {
     const locomotives = await Locomotive.find({ type: req.params.type });

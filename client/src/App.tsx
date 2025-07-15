@@ -7,6 +7,7 @@ import Locomotives from './pages/Locomotives';
 import Steam from './pages/Steam';
 import Diesel from './pages/Diesel';
 import Electric from './pages/Electric';
+import LocomotivePage from './pages/LocomotivePage';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/locomotives/steam" element={<Steam />} />
           <Route path="/locomotives/diesel" element={<Diesel />} />
           <Route path="/locomotives/electric" element={<Electric />} />
+          <Route path="/locomotives/:slug" element={<LocomotivePage />} />
         </Routes>
       </div>
     </Router>
