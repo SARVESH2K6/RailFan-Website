@@ -8,78 +8,79 @@ interface LocoData {
 }
 
 const locomotiveData: Record<string, LocoData> = {
-  B: {
-    key: 'B',
-    image: 'https://i.ibb.co/Q3V88MV6/B.jpg',
-    name: 'B class',
-    description: 'A class of steam locomotives used primarily for short-distance passenger trains.',
-  },
-  WG: {
-    key: 'WG',
-    image: 'https://i.ibb.co/qLGyhpXM/WG.jpg',
-    name: 'WG class',
-    description: 'Locomotive class designed to be widely used in both plains and hilly areas.',
-  },
-  WL: {
-    key: 'WL',
-    image: 'https://i.ibb.co/KjXQJLfQ/WL.jpg',
-    name: 'WL class',
-    description: 'Locomotive class designed to manage steep gradients effectively.',
-  },
-  WP: {
-    key: 'WP',
-    image: 'https://i.ibb.co/Q73k1HS7/WP.jpg',
-    name: 'WP',
-    description: 'Locomotive class known for its high speed and reliability.',
-  },
-  X: {
-    key: 'X',
-    image: 'https://i.ibb.co/NndP4dwy/X.jpg',
-    name: 'X',
-    description: 'Locomotive class used primarily in the post-war period.',
-  },
   XD: {
-    key: 'XD',
-    image: 'https://i.ibb.co/w3Hv4MN/XD.jpg',
-    name: 'XD',
-    description: 'Locomotive class widely used during the early 20th century.',
-  },
-  XE: {
-    key: 'XE',
-    image: 'https://i.ibb.co/9HLysG9b/XE.jpg',
-    name: 'XE',
-    description: 'Locomotive class used for inter-city travel, known for their robustness and long lifespan.',
-  },
-  YG: {
-    key: 'YG',
-    image: 'https://i.ibb.co/WvKvx79y/YG.jpg',
-    name: 'YG',
-    description: 'Locomotive class used for passenger trains in hilly regions, designed for steep gradients.',
-  },
-  YP: {
-    key: 'YP',
-    image: 'https://i.ibb.co/BVQLQJJQ/YP.jpg',
-    name: 'YP',
-    description: 'Locomotive class used for passenger and freight services, especially in remote areas.',
-  },
-  ZB: {
-    key: 'ZB',
-    image: 'https://i.ibb.co/tTMFHmYD/ZB.jpg',
-    name: 'ZB',
-    description: 'Locomotive class used for freight hauling, known for its power and durability in demanding operations.',
-  },
-  ZE: {
-    key: 'ZE',
-    image: 'https://i.ibb.co/Rp00f8Q8/ZE.jpg',
-    name: 'ZE',
-    description: 'Locomotive class used for both operations, often deployed for medium-distance services.',
-  },
-  ZP: {
-    key: 'ZP',
-    image: 'https://i.ibb.co/W4TK7dJt/ZP.jpg',
-    name: 'ZP',
-    description: 'Locomotive class known for its reliability in both suburban and long-distance travel.',
-  },
+  key: 'XD',
+  image: 'https://i.ibb.co/w3Hv4MN/XD.jpg',
+  name: 'XD',
+  description: 'A World War I-era heavy freight steam locomotive introduced in the 1920s, known for ruggedness and long-distance haulage on broad gauge.',
+},
+XE: {
+  key: 'XE',
+  image: 'https://i.ibb.co/9HLysG9b/XE.jpg',
+  name: 'XE',
+  description: 'One of the most powerful broad-gauge steam freight locomotives used in India during the pre-independence era, introduced in the 1930s.',
+},
+X: {
+  key: 'X',
+  image: 'https://i.ibb.co/NndP4dwy/X.jpg',
+  name: 'X',
+  description: 'A special rack steam locomotive class designed for the Nilgiri Mountain Railway with a rack-and-pinion system, introduced in 1914.',
+},
+WG: {
+  key: 'WG',
+  image: 'https://i.ibb.co/qLGyhpXM/WG.jpg',
+  name: 'WG',
+  description: 'India’s most numerous freight steam locomotive class, introduced in 1950 and used across broad-gauge routes for heavy loads.',
+},
+WP: {
+  key: 'WP',
+  image: 'https://i.ibb.co/Q73k1HS7/WP.jpg',
+  name: 'WP',
+  description: 'Iconic post-independence passenger steam locomotive introduced in 1947, designed for high-speed service on broad gauge.',
+},
+WL: {
+  key: 'WL',
+  image: 'https://i.ibb.co/KjXQJLfQ/WL.jpg',
+  name: 'WL',
+  description: 'A medium-speed broad-gauge passenger steam locomotive designed in the 1950s for mail and express trains on lighter rails.',
+},
+YP: {
+  key: 'YP',
+  image: 'https://i.ibb.co/BVQLQJJQ/YP.jpg',
+  name: 'YP',
+  description: 'The standard metre-gauge passenger steam locomotive introduced in 1950s, widely used across rural and semi-urban India.',
+},
+YG: {
+  key: 'YG',
+  image: 'https://i.ibb.co/WvKvx79y/YG.jpg',
+  name: 'YG',
+  description: 'The standard metre-gauge freight steam locomotive of the 1950s, often paired with YP on mixed-traffic duties in hilly terrain.',
+},
+B: {
+  key: 'B',
+  image: 'https://i.ibb.co/Q3V88MV6/B.jpg',
+  name: 'B class',
+  description: 'Narrow-gauge steam locomotive used on the Darjeeling Himalayan Railway since 1889, known for its resilience and heritage value.',
+},
+ZB: {
+  key: 'ZB',
+  image: 'https://i.ibb.co/tTMFHmYD/ZB.jpg',
+  name: 'ZB',
+  description: 'A 2-6-2 narrow-gauge freight locomotive used on central Indian NG routes, known for its strength in tough terrain.',
+},
+ZE: {
+  key: 'ZE',
+  image: 'https://i.ibb.co/Rp00f8Q8/ZE.jpg',
+  name: 'ZE',
+  description: 'A narrow-gauge mixed-traffic locomotive used for both freight and passengers on hilly routes, introduced in the mid-20th century.',
+},
+ZP: {
+  key: 'ZP',
+  image: 'https://i.ibb.co/W4TK7dJt/ZP.jpg',
+  name: 'ZP',
+  description: 'A powerful narrow-gauge passenger locomotive designed for steep gradients and reliable service, especially in central India.',
+},
+
 };
 
 export default function Steam() {
