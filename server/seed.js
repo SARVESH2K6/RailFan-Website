@@ -119,6 +119,9 @@ db.once('open', async () => {
         description: 'The iconic post-independence passenger steam locomotive designed for high-speed service on broad gauge.',
         image: '/Images/Locomotive/Steam.jpg',
         longDescription: 'The WP class was introduced in 1947 and became the backbone of Indian Railways passenger services. Known for its bullet-nosed design and high speed, the WP class was a symbol of post-independence engineering prowess. These locomotives hauled prestigious trains and are remembered for their reliability and performance. Some units are preserved for heritage runs today.',
+        history: 'The WP class was developed post-independence to meet the growing demand for fast passenger trains. It was manufactured by several companies, including Chittaranjan Locomotive Works, and served on prestigious routes across India.',
+        service: 'WP locomotives hauled important express trains such as the Howrah–Delhi Mail and the Grand Trunk Express. They were known for their speed and reliability, serving Indian Railways for several decades.',
+        preservation: 'A few WP class locomotives have been preserved in railway museums and are occasionally used for heritage runs, showcasing the legacy of Indian steam power.',
         specs: {
           "Gauge": "Broad Gauge (5 ft 6 in)",
           "Wheel Arrangement": "4-6-2 Pacific",
@@ -141,6 +144,9 @@ db.once('open', async () => {
         description: 'India’s most successful and iconic diesel locomotive, built by ALCO and produced in large numbers by DLW from 1962 onwards.',
         image: '/Images/Locomotive/Diesel.jpg',
         longDescription: 'The WDM-2 is the workhorse of Indian Railways, introduced in the early 1960s. Built under license from ALCO, it served both passenger and freight duties for decades. Its robust design and adaptability made it the most numerous mainline diesel locomotive in India. Many units are still operational or used for shunting.',
+        history: 'The WDM-2 was introduced to replace aging steam locomotives and modernize Indian Railways. Built in Varanasi, it became the backbone of both passenger and freight services.',
+        service: 'WDM-2s were used across India for a variety of services, from express passenger trains to heavy freight. Their versatility and reliability made them a favorite among railway staff.',
+        preservation: 'Several WDM-2 units have been preserved in museums and are sometimes used for special events and heritage runs.',
         specs: {
           "Gauge": "Broad Gauge (5 ft 6 in)",
           "Wheel Arrangement": "Co-Co",
@@ -163,6 +169,9 @@ db.once('open', async () => {
         description: 'The backbone of Indian Railways’ passenger fleet since the 2000s, known for its high power, reliability, and regenerative braking.',
         image: '/Images/Locomotive/electric.jpg',
         longDescription: 'The WAP-7 is a high-speed electric locomotive developed by Chittaranjan Locomotive Works. Introduced in the early 2000s, it is capable of hauling long, heavy express trains at speeds up to 140 km/h. Its advanced features include regenerative braking and microprocessor-based controls, making it a favorite for premium passenger services.',
+        history: 'WAP-7 was developed to meet the need for high-speed, high-power electric locomotives. It is based on the WAG-9 freight design but optimized for passenger service.',
+        service: 'WAP-7s haul premier trains like Rajdhani, Shatabdi, and Duronto Expresses, providing fast and efficient service across electrified routes.',
+        preservation: 'As a modern class, WAP-7s are still in active service, but a few prototypes are displayed at railway exhibitions.',
         specs: {
           "Gauge": "Broad Gauge (5 ft 6 in)",
           "Wheel Arrangement": "Co-Co",

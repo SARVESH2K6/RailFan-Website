@@ -21,12 +21,21 @@ const locomotiveSchema = new mongoose.Schema({
   longDescription: {
     type: String,
   },
+  history: {
+    type: String,
+  },
+  service: {
+    type: String,
+  },
+  preservation: {
+    type: String,
+  },
   specs: {
-    type: Object, // or Map, for key-value technical specs
+    type: Object,
   },
   gallery: [
     {
-      type: String, // image URLs
+      type: String,
     }
   ],
   classes: [{

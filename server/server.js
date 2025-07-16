@@ -38,9 +38,10 @@ app.use('/api/zones', zoneRoutes);
 // Serve static files from the React app
 app.use('/Images', express.static(path.join(__dirname, '../client/public/Images')));
 
-// Catch all handler: send back React's index.html file for any non-API routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// Serve React app for all non-API routes
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api/')) return next();
+  res.sendFile(path.join(__dirname, '../client/public/index.html'));
 });
 
 const PORT = process.env.PORT || 5000;
