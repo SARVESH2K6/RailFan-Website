@@ -18,6 +18,17 @@ const locomotiveSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  longDescription: {
+    type: String,
+  },
+  specs: {
+    type: Object, // or Map, for key-value technical specs
+  },
+  gallery: [
+    {
+      type: String, // image URLs
+    }
+  ],
   classes: [{
     name: String,
     description: String

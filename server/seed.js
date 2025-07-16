@@ -115,35 +115,68 @@ db.once('open', async () => {
     const locomotiveData = [
       {
         type: 'steam',
-        title: 'Steam',
-        description: 'This section showcases India\'s iconic steam locomotives, their legacy, engineering brilliance, and role in shaping Indian railway history.',
+        title: 'WP Class',
+        description: 'The iconic post-independence passenger steam locomotive designed for high-speed service on broad gauge.',
         image: '/Images/Locomotive/Steam.jpg',
+        longDescription: 'The WP class was introduced in 1947 and became the backbone of Indian Railways passenger services. Known for its bullet-nosed design and high speed, the WP class was a symbol of post-independence engineering prowess. These locomotives hauled prestigious trains and are remembered for their reliability and performance. Some units are preserved for heritage runs today.',
+        specs: {
+          "Gauge": "Broad Gauge (5 ft 6 in)",
+          "Wheel Arrangement": "4-6-2 Pacific",
+          "Builder": "Chittaranjan Locomotive Works, Baldwin, Canadian Locomotive Company",
+          "Year Introduced": 1947,
+          "Max Speed": "110 km/h",
+          "Tractive Effort": "27,000 lbf"
+        },
+        gallery: [
+          '/Images/Locomotive/Steam.jpg',
+          '/Images/Train/Steam.jpg'
+        ],
         classes: [
-          { name: 'Class A', description: 'Early passenger locomotives' },
-          { name: 'Class B', description: 'Mixed traffic locomotives' },
-          { name: 'Class C', description: 'Heavy freight locomotives' }
+          { name: 'WP', description: 'Standard passenger steam locomotive' }
         ]
       },
       {
         type: 'diesel',
-        title: 'Diesel',
-        description: 'This section highlights powerful Diesel Locomotives that revolutionized Indian Railways, bridging the gap between steam and electric eras.',
+        title: 'WDM-2',
+        description: 'India’s most successful and iconic diesel locomotive, built by ALCO and produced in large numbers by DLW from 1962 onwards.',
         image: '/Images/Locomotive/Diesel.jpg',
+        longDescription: 'The WDM-2 is the workhorse of Indian Railways, introduced in the early 1960s. Built under license from ALCO, it served both passenger and freight duties for decades. Its robust design and adaptability made it the most numerous mainline diesel locomotive in India. Many units are still operational or used for shunting.',
+        specs: {
+          "Gauge": "Broad Gauge (5 ft 6 in)",
+          "Wheel Arrangement": "Co-Co",
+          "Builder": "Diesel Locomotive Works (DLW), Varanasi",
+          "Year Introduced": 1962,
+          "Power Output": "2,600 hp",
+          "Max Speed": "120 km/h"
+        },
+        gallery: [
+          '/Images/Locomotive/Diesel.jpg',
+          '/Images/Train/goods.jpg'
+        ],
         classes: [
-          { name: 'WDM Series', description: 'Mixed traffic locomotives' },
-          { name: 'WDP Series', description: 'Passenger locomotives' },
-          { name: 'WDS Series', description: 'Shunting locomotives' }
+          { name: 'WDM-2', description: 'Mainline mixed-traffic diesel locomotive' }
         ]
       },
       {
         type: 'electric',
-        title: 'Electric',
-        description: 'This section showcases advanced, eco-friendly engines that enhance speed, efficiency, and sustainability across India\'s vast railway network.',
+        title: 'WAP-7',
+        description: 'The backbone of Indian Railways’ passenger fleet since the 2000s, known for its high power, reliability, and regenerative braking.',
         image: '/Images/Locomotive/electric.jpg',
+        longDescription: 'The WAP-7 is a high-speed electric locomotive developed by Chittaranjan Locomotive Works. Introduced in the early 2000s, it is capable of hauling long, heavy express trains at speeds up to 140 km/h. Its advanced features include regenerative braking and microprocessor-based controls, making it a favorite for premium passenger services.',
+        specs: {
+          "Gauge": "Broad Gauge (5 ft 6 in)",
+          "Wheel Arrangement": "Co-Co",
+          "Builder": "Chittaranjan Locomotive Works (CLW)",
+          "Year Introduced": 2000,
+          "Power Output": "6,350 hp",
+          "Max Speed": "140 km/h"
+        },
+        gallery: [
+          '/Images/Locomotive/electric.jpg',
+          '/Images/Train/VandeBharat.jpg'
+        ],
         classes: [
-          { name: 'WAP Series', description: 'Passenger locomotives' },
-          { name: 'WAG Series', description: 'Freight locomotives' },
-          { name: 'WAM Series', description: 'Mixed traffic locomotives' }
+          { name: 'WAP-7', description: 'High-speed passenger electric locomotive' }
         ]
       }
     ];

@@ -1,195 +1,172 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-export interface Fact {
-  label: string;
-  value: string;
-  icon: string;
-}
-export interface TechHighlight {
-  icon: string;
+interface Locomotive {
+  _id: string;
+  type: string;
   title: string;
-  desc: string;
-}
-export interface Shed {
-  name: string;
-  region: string;
-}
-
-export interface LocomotiveDetailProps {
-  heroBadge: string;
-  heroTitle: string;
-  heroSubtitle: string;
-  heroDesc: string;
-  heroImage: string;
-  quickFacts: Fact[];
-  specs: Fact[];
-  history: React.ReactNode;
-  service: React.ReactNode;
-  features: string[];
-  funFacts: string[];
-  sheds: Shed[];
-  techHighlights: TechHighlight[];
-  breadcrumbs: { label: string; to?: string }[];
+  description: string;
+  longDescription?: string;
+  image: string;
+  specs?: Record<string, string | number>;
+  gallery?: string[];
+  classes?: { name: string; description: string }[];
 }
 
-const LocomotiveDetail: React.FC<LocomotiveDetailProps> = ({
-  heroBadge,
-  heroTitle,
-  heroSubtitle,
-  heroDesc,
-  heroImage,
-  quickFacts,
-  specs,
-  history,
-  service,
-  features,
-  funFacts,
-  sheds,
-  techHighlights,
-  breadcrumbs,
-}) => {
-  const navigate = useNavigate();
+const sectionList = [
+  { id: 'introduction', label: 'Introduction' },
+  { id: 'history', label: 'History' },
+  { id: 'specs', label: 'Technical Specifications' },
+  { id: 'service', label: 'Service' },
+  { id: 'preservation', label: 'Preservation' },
+  { id: 'gallery', label: 'Gallery' },
+  { id: 'references', label: 'References' },
+];
+
+const LocomotiveDetail: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const [locomotive, setLocomotive] = useState<Locomotive | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    setLoading(true);
+    setError(null);
+    fetch(`/api/locomotives/${id}`)
+      .then(res => {
+        if (!res.ok) throw new Error('Locomotive not found');
+        return res.json();
+      })
+      .then(data => {
+        setLocomotive(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, [id]);
+
+  if (loading) return <div className="text-center text-white py-16">Loading...</div>;
+  if (error) return <div className="text-center text-red-500 py-16">{error}</div>;
+  if (!locomotive) return null;
+
   return (
-    <div className="min-h-screen bg-neutral-900 text-white relative overflow-x-hidden">
-      <Navbar />
-      {/* Hero Section */}
-      <section className="relative flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-16 bg-gradient-to-br from-neutral-900 via-neutral-800 to-yellow-100/10 shadow-lg overflow-hidden">
-        <div className="flex-1 z-10 fadein-section">
-          <span className="inline-block bg-yellow-400 text-neutral-900 font-bold px-4 py-1 rounded-full mb-2 text-sm tracking-widest shadow-md">{heroBadge}</span>
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-2 text-yellow-300 drop-shadow-lg">{heroTitle}</h1>
-          <h2 className="text-xl md:text-2xl font-semibold mb-4 text-yellow-100/90">{heroSubtitle}</h2>
-          <p className="text-lg md:text-xl text-neutral-200 mb-8 max-w-xl">{heroDesc}</p>
-          <button
-            onClick={() => navigate(-1)}
-            className="bg-yellow-400 hover:bg-yellow-300 text-neutral-900 font-bold px-6 py-3 rounded-full shadow-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-yellow-200"
-          >
-            Back
-          </button>
-        </div>
-        <div className="flex-1 flex justify-center items-center relative fadein-section">
-          <img
-            src={heroImage}
-            alt={heroTitle}
-            className="w-[420px] h-[270px] object-cover rounded-3xl shadow-2xl border-4 border-yellow-300 bg-black/30"
-            style={{ filter: 'brightness(0.95) contrast(1.1)' }}
-          />
-        </div>
-        <div className="absolute -top-16 -right-16 w-96 h-96 bg-yellow-300 opacity-20 rounded-full blur-3xl z-0" />
-      </section>
+    <div className="min-h-screen bg-neutral-800 py-8 px-2 md:px-8 font-['Merriweather',serif]">
+      <div className="max-w-5xl mx-auto bg-white bg-opacity-95 rounded-lg shadow-lg p-6 md:p-12 relative flex flex-col md:flex-row">
+        {/* Infobox */}
+        <aside className="md:w-1/3 w-full md:ml-8 md:order-2 mb-8 md:mb-0 md:sticky md:top-8 self-start">
+          <div className="bg-gray-100 border border-gray-300 rounded-lg p-4 mb-4 shadow-md">
+            <img
+              src={locomotive.image}
+              alt={locomotive.title}
+              className="w-full h-56 object-cover rounded mb-4 border border-gray-300"
+            />
+            <h2 className="text-xl font-bold text-center mb-2">{locomotive.title}</h2>
+            <div className="text-center text-sm mb-2">
+              <span className="inline-block bg-gradient-to-br from-purple-600 to-blue-500 text-white px-3 py-1 rounded-full font-semibold">
+                {locomotive.type.charAt(0).toUpperCase() + locomotive.type.slice(1)} Locomotive
+              </span>
+            </div>
+            {locomotive.specs && (
+              <table className="w-full text-sm mt-2 mb-2 border-t border-b border-gray-300">
+                <tbody>
+                  {Object.entries(locomotive.specs).map(([key, value]) => (
+                    <tr key={key}>
+                      <td className="font-semibold py-1 pr-2 text-gray-700 align-top">{key}</td>
+                      <td className="py-1 text-gray-800 align-top">{value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
+        </aside>
 
-      {/* Quick Facts & Specs */}
-      <section className="max-w-6xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 px-6 fadein-section">
-        <div className="bg-neutral-800 bg-opacity-80 rounded-2xl shadow-xl p-8 flex flex-col gap-4 border-l-8 border-yellow-400 backdrop-blur-md">
-          <h3 className="text-2xl font-bold mb-4 text-yellow-300 flex items-center gap-2">Quick Facts <span>📋</span></h3>
-          <ul className="grid grid-cols-2 gap-4">
-            {quickFacts.map(fact => (
-              <li key={fact.label} className="flex flex-col gap-1">
-                <span className="text-yellow-200 font-semibold flex items-center gap-1">{fact.icon} {fact.label}</span>
-                <span className="text-lg text-white">{fact.value}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="bg-neutral-800 bg-opacity-80 rounded-2xl shadow-xl p-8 border-l-8 border-yellow-400 backdrop-blur-md">
-          <h3 className="text-2xl font-bold mb-4 text-yellow-300 flex items-center gap-2">Technical Specs <span>🛠️</span></h3>
-          <ul className="grid grid-cols-2 gap-4">
-            {specs.map(spec => (
-              <li key={spec.label} className="flex flex-col gap-1">
-                <span className="text-yellow-200 font-semibold flex items-center gap-1">{spec.icon} {spec.label}</span>
-                <span className="text-lg text-white">{spec.value}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+        {/* Main Content */}
+        <main className="md:w-2/3 w-full md:pr-8">
+          {/* Title */}
+          <h1 className="text-4xl font-bold mb-2 text-neutral-900">{locomotive.title}</h1>
+          <p className="text-lg text-neutral-700 mb-4 italic">{locomotive.description}</p>
+          <hr className="mb-6" />
 
-      {/* History & Service */}
-      <section className="max-w-6xl mx-auto mt-16 px-6 grid grid-cols-1 md:grid-cols-2 gap-12 fadein-section">
-        <div className="bg-neutral-800 bg-opacity-90 rounded-2xl shadow-lg p-8 backdrop-blur-md">
-          <h3 className="text-2xl font-bold mb-4 text-yellow-300 flex items-center gap-2">History & Development <span>📖</span></h3>
-          {history}
-        </div>
-        <div className="bg-neutral-800 bg-opacity-90 rounded-2xl shadow-lg p-8 backdrop-blur-md">
-          <h3 className="text-2xl font-bold mb-4 text-yellow-300 flex items-center gap-2">Service & Operations <span>🚆</span></h3>
-          {service}
-        </div>
-      </section>
+          {/* Table of Contents */}
+          <nav className="mb-8">
+            <div className="font-semibold mb-2 text-gray-700">Contents</div>
+            <ul className="list-decimal ml-6 text-blue-700 text-sm space-y-1">
+              {sectionList.map(section => (
+                <li key={section.id}>
+                  <a href={`#${section.id}`} className="hover:underline">{section.label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-      {/* Notable Features & Fun Facts */}
-      <section className="max-w-6xl mx-auto mt-16 px-6 grid grid-cols-1 md:grid-cols-2 gap-12 fadein-section">
-        <div className="bg-neutral-800 bg-opacity-95 rounded-2xl shadow-xl p-8 border-l-8 border-yellow-400 backdrop-blur-md">
-          <h3 className="text-2xl font-bold mb-4 text-yellow-300 flex items-center gap-2">Notable Features <span>⭐</span></h3>
-          <ul className="list-disc list-inside text-lg text-neutral-200 space-y-2">
-            {features.map((f, i) => <li key={i}>{f}</li>)}
-          </ul>
-        </div>
-        <div className="bg-neutral-800 bg-opacity-95 rounded-2xl shadow-xl p-8 border-l-8 border-yellow-400 backdrop-blur-md">
-          <h3 className="text-2xl font-bold mb-4 text-yellow-300 flex items-center gap-2">Fun Facts <span>🎉</span></h3>
-          <ul className="list-disc list-inside text-lg text-neutral-200 space-y-2">
-            {funFacts.map((fact, i) => <li key={i}>{fact}</li>)}
-          </ul>
-        </div>
-      </section>
+          {/* Sections */}
+          <section id="introduction" className="mb-8">
+            <h2 className="text-2xl font-bold mb-2 text-neutral-900">Introduction</h2>
+            <p className="text-neutral-800">{locomotive.longDescription || locomotive.description}</p>
+          </section>
 
-      {/* Major Sheds */}
-      <section className="max-w-6xl mx-auto mt-16 px-6 fadein-section">
-        <div className="bg-neutral-800 bg-opacity-90 rounded-2xl shadow-lg p-8 backdrop-blur-md">
-          <h3 className="text-2xl font-bold mb-4 text-yellow-300 flex items-center gap-2">Major Sheds <span>🏠</span></h3>
-          <ul className="list-disc list-inside text-neutral-200">
-            {sheds.map(shed => (
-              <li key={shed.name}><span className="font-semibold text-yellow-100">{shed.name}</span> <span className="text-xs text-neutral-400">({shed.region})</span></li>
-            ))}
-          </ul>
-        </div>
-      </section>
+          <section id="history" className="mb-8">
+            <h2 className="text-2xl font-bold mb-2 text-neutral-900">History</h2>
+            <p className="text-neutral-800">[Add a detailed history of this locomotive here. You can expand the Locomotive model to include a history field for more content.]</p>
+          </section>
 
-      {/* Design & Technology Highlights */}
-      <section className="max-w-6xl mx-auto mt-16 px-6 fadein-section">
-        <div className="bg-neutral-800 bg-opacity-90 rounded-2xl shadow-lg p-8 backdrop-blur-md">
-          <h3 className="text-2xl font-bold mb-4 text-yellow-300 flex items-center gap-2">Design & Technology Highlights <span>💡</span></h3>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {techHighlights.map((item) => (
-              <li key={item.title} className="flex items-start gap-4">
-                <span className="text-3xl">{item.icon}</span>
-                <div>
-                  <div className="font-bold text-yellow-200">{item.title}</div>
-                  <div className="text-neutral-200 text-sm">{item.desc}</div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+          <section id="specs" className="mb-8">
+            <h2 className="text-2xl font-bold mb-2 text-neutral-900">Technical Specifications</h2>
+            {locomotive.specs ? (
+              <table className="w-full text-sm border border-gray-300 bg-gray-50 rounded">
+                <tbody>
+                  {Object.entries(locomotive.specs).map(([key, value]) => (
+                    <tr key={key} className="border-b border-gray-200">
+                      <td className="font-semibold py-1 pr-2 text-gray-700 align-top w-1/3">{key}</td>
+                      <td className="py-1 text-gray-800 align-top">{value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              <p className="text-neutral-800">No technical specifications available.</p>
+            )}
+          </section>
 
-      {/* Breadcrumbs & Footer */}
-      <section className="max-w-6xl mx-auto mt-16 px-6 pb-12 fadein-section">
-        <div className="flex flex-wrap items-center gap-2 text-yellow-200 text-sm mb-4">
-          {breadcrumbs.map((b, i) => (
-            <>
-              {b.to ? (
-                <span key={b.label} className="cursor-pointer hover:underline" onClick={() => navigate(b.to!)}>{b.label}</span>
-              ) : (
-                <span key={b.label} className="font-bold">{b.label}</span>
-              )}
-              {i < breadcrumbs.length - 1 && <span key={b.label + '-sep'}>/</span>}
-            </>
-          ))}
-        </div>
-        <div className="text-neutral-400 text-xs">Page design © RailFan | Data from Indian Railways & enthusiast sources</div>
-      </section>
+          <section id="service" className="mb-8">
+            <h2 className="text-2xl font-bold mb-2 text-neutral-900">Service</h2>
+            <p className="text-neutral-800">[Describe the service history, routes, and notable trains hauled by this locomotive.]</p>
+          </section>
 
-      {/* Minimal Animations */}
-      <style>{`
-        .fadein-section { opacity: 0; transform: translateY(30px); animation: fadein-section 0.8s cubic-bezier(.4,0,.2,1) forwards; }
-        .fadein-section:nth-of-type(1) { animation-delay: 0.1s; }
-        .fadein-section:nth-of-type(2) { animation-delay: 0.2s; }
-        .fadein-section:nth-of-type(3) { animation-delay: 0.3s; }
-        .fadein-section:nth-of-type(4) { animation-delay: 0.4s; }
-        .fadein-section:nth-of-type(5) { animation-delay: 0.5s; }
-        @keyframes fadein-section { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
-      `}</style>
+          <section id="preservation" className="mb-8">
+            <h2 className="text-2xl font-bold mb-2 text-neutral-900">Preservation</h2>
+            <p className="text-neutral-800">[List preserved units, museums, and heritage runs if any.]</p>
+          </section>
+
+          <section id="gallery" className="mb-8">
+            <h2 className="text-2xl font-bold mb-2 text-neutral-900">Gallery</h2>
+            {locomotive.gallery && locomotive.gallery.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {locomotive.gallery.map((img, idx) => (
+                  <div key={idx} className="bg-gray-100 rounded shadow p-2 flex flex-col items-center">
+                    <img src={img} alt={`Gallery ${idx + 1}`} className="w-full h-48 object-cover rounded mb-2" />
+                    <span className="text-xs text-gray-600">Image {idx + 1}</span>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-neutral-800">No gallery images available.</p>
+            )}
+          </section>
+
+          <section id="references" className="mb-8">
+            <h2 className="text-2xl font-bold mb-2 text-neutral-900">References</h2>
+            <ul className="list-disc ml-6 text-blue-700">
+              <li><a href="https://en.wikipedia.org/wiki/Indian_locomotives" target="_blank" rel="noopener noreferrer" className="hover:underline">Wikipedia: Indian locomotives</a></li>
+              <li><a href="https://www.irfca.org/" target="_blank" rel="noopener noreferrer" className="hover:underline">IRFCA: Indian Railways Fan Club</a></li>
+              <li>[Add more references here]</li>
+            </ul>
+          </section>
+        </main>
+      </div>
     </div>
   );
 };
