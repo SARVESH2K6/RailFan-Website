@@ -16,7 +16,7 @@ const Electric: React.FC = () => {
   useEffect(() => {
     setLoading(true);
     setError(null);
-    fetch('/api/locomotives?type=electric')
+    fetch('/api/electric-locomotives')
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch locomotives');
         return res.json();
@@ -44,7 +44,7 @@ const Electric: React.FC = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
             {locomotives.map(loco => (
-              <Link key={loco._id} to={`/locomotives/electric/${loco._id}`}>
+              <Link key={loco._id} to={`/electric/${loco._id}`}>
                 <div className="bg-white bg-opacity-75 p-4 rounded-lg shadow-lg grayscale hover:grayscale-0 transform hover:scale-105 transition duration-300 cursor-pointer">
                   <img alt={loco.title} className="w-full h-40 object-cover rounded-t-lg" src={loco.image} />
                   <h3 className="text-2xl font-bold mb-2 text-center">{loco.title}</h3>

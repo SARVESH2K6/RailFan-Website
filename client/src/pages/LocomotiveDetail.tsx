@@ -14,32 +14,63 @@ export interface Locomotive {
   history?: string;
   service?: string;
   preservation?: string;
+  status: 'active' | 'retired' | 'preserved' | 'heritage';
 }
 
-const sectionList = [
-  { id: 'introduction', label: 'Introduction' },
-  { id: 'history', label: 'History' },
-  { id: 'specs', label: 'Technical Specifications' },
-  { id: 'service', label: 'Service' },
-  { id: 'preservation', label: 'Preservation' },
-  { id: 'gallery', label: 'Gallery' },
-  { id: 'references', label: 'References' },
-];
+// Get status-based sections
+const getStatusBasedSections = (locomotive: Locomotive | null) => {
+  if (!locomotive) return [];
+  
+  const baseSections = [
+    { id: 'introduction', label: 'Introduction' },
+    { id: 'history', label: 'History' },
+    { id: 'specs', label: 'Technical Specifications' },
+  ];
+
+  // Add service section for active locomotives
+  if (locomotive.status === 'active' && locomotive.service) {
+    baseSections.push({ id: 'service', label: 'Current Service' });
+  }
+
+  // Add preservation section for retired/preserved/heritage locomotives
+  if (['retired', 'preserved', 'heritage'].includes(locomotive.status) && locomotive.preservation) {
+    baseSections.push({ id: 'preservation', label: 'Preservation' });
+  }
+
+  // Add gallery and references
+  baseSections.push(
+    { id: 'gallery', label: 'Gallery' },
+    { id: 'references', label: 'References' }
+  );
+
+  return baseSections;
+};
 
 const LocomotiveDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  // Determine type from the current path
+  const path = window.location.pathname;
+  let type: string | undefined = undefined;
+  if (path.startsWith('/steam/')) type = 'steam';
+  else if (path.startsWith('/diesel/')) type = 'diesel';
+  else if (path.startsWith('/electric/')) type = 'electric';
   const [locomotive, setLocomotive] = useState<Locomotive | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [infoboxVisible, setInfoboxVisible] = useState(false);
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
-  const [sectionVisible, setSectionVisible] = useState<boolean[]>(new Array(sectionList.length).fill(false));
+  const [sectionVisible, setSectionVisible] = useState<boolean[]>([]);
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
 
   useEffect(() => {
     setLoading(true);
     setError(null);
-    fetch(`/api/locomotives/${id}`)
+    let endpoint = '';
+    if (type === 'steam') endpoint = `/api/steam-locomotives/${id}`;
+    else if (type === 'diesel') endpoint = `/api/diesel-locomotives/${id}`;
+    else if (type === 'electric') endpoint = `/api/electric-locomotives/${id}`;
+    else endpoint = `/api/locomotives/${id}`;
+    fetch(endpoint)
       .then(res => {
         if (!res.ok) throw new Error('Locomotive not found');
         return res.json();
@@ -53,13 +84,18 @@ const LocomotiveDetail: React.FC = () => {
         setError(err.message);
         setLoading(false);
       });
-  }, [id]);
+  }, [id, type]);
 
   useEffect(() => {
     if (!locomotive) return;
     const observers: IntersectionObserver[] = [];
-    sectionRefs.current = sectionRefs.current.slice(0, sectionList.length);
-    sectionList.forEach((_, i) => {
+    const sections = getStatusBasedSections(locomotive);
+    
+    // Initialize sectionVisible array with the correct length
+    setSectionVisible(new Array(sections.length).fill(false));
+    
+    sectionRefs.current = sectionRefs.current.slice(0, sections.length);
+    sections.forEach((_, i) => {
       if (!sectionRefs.current[i]) return;
       const observer = new window.IntersectionObserver(
         (entries) => {
@@ -93,6 +129,40 @@ const LocomotiveDetail: React.FC = () => {
   if (loading) return <div className="text-center text-white py-16">Loading...</div>;
   if (error) return <div className="text-center text-red-500 py-16">{error}</div>;
   if (!locomotive) return null;
+
+  const sectionList = getStatusBasedSections(locomotive);
+
+  // Get status badge color
+  const getStatusBadgeColor = (status: string) => {
+    switch (status) {
+      case 'active':
+        return 'bg-green-500';
+      case 'retired':
+        return 'bg-gray-500';
+      case 'preserved':
+        return 'bg-blue-500';
+      case 'heritage':
+        return 'bg-purple-500';
+      default:
+        return 'bg-gray-500';
+    }
+  };
+
+  // Get status display text
+  const getStatusDisplayText = (status: string) => {
+    switch (status) {
+      case 'active':
+        return 'Active Service';
+      case 'retired':
+        return 'Retired';
+      case 'preserved':
+        return 'Preserved';
+      case 'heritage':
+        return 'Heritage';
+      default:
+        return status;
+    }
+  };
 
   return (
     <div className="min-h-screen bg-neutral-800 py-8 px-2 md:px-8 font-['Merriweather',serif]">
@@ -159,10 +229,15 @@ const LocomotiveDetail: React.FC = () => {
               className="w-full h-56 object-cover rounded mb-4 border border-gray-300"
             />
             <h2 className="text-xl font-bold text-center mb-2">{locomotive.title}</h2>
-            <div className="text-center text-sm mb-2">
+            <div className="text-center text-sm mb-2 space-y-2">
               <span className="inline-block bg-gradient-to-br from-purple-600 to-blue-500 text-white px-3 py-1 rounded-full font-semibold">
                 {locomotive.type.charAt(0).toUpperCase() + locomotive.type.slice(1)} Locomotive
               </span>
+              <div>
+                <span className={`inline-block ${getStatusBadgeColor(locomotive.status)} text-white px-3 py-1 rounded-full font-semibold text-xs`}>
+                  {getStatusDisplayText(locomotive.status)}
+                </span>
+              </div>
             </div>
             {locomotive.specs && (
               <table className="w-full text-sm mt-2 mb-2 border-t border-b border-gray-300">
@@ -199,73 +274,111 @@ const LocomotiveDetail: React.FC = () => {
           </nav>
 
           {/* Sections */}
-          <section id="introduction" className={`mb-8 section-slide-in${sectionVisible[0] ? ' visible' : ''}`} ref={el => (sectionRefs.current[0] = el)}>
-            <h2 className="text-2xl font-bold mb-2 text-neutral-900">Introduction</h2>
-            <p className="text-neutral-800">{locomotive.longDescription || locomotive.description}</p>
-          </section>
-
-          <section id="history" className={`mb-8 section-slide-in${sectionVisible[1] ? ' visible' : ''}`} ref={el => (sectionRefs.current[1] = el)}>
-            <h2 className="text-2xl font-bold mb-2 text-neutral-900">History</h2>
-            <p className="text-neutral-800">{locomotive.history}</p>
-          </section>
-
-          <section id="specs" className={`mb-8 section-slide-in${sectionVisible[2] ? ' visible' : ''}`} ref={el => (sectionRefs.current[2] = el)}>
-            <h2 className="text-2xl font-bold mb-2 text-neutral-900">Technical Specifications</h2>
-            {locomotive.specs ? (
-              <table className="w-full text-sm border border-gray-300 bg-gray-50 rounded">
-                <tbody>
-                  {Object.entries(locomotive.specs).map(([key, value]) => (
-                    <tr key={key} className="border-b border-gray-200">
-                      <td className="font-semibold py-1 pr-2 text-gray-700 align-top w-1/3">{key}</td>
-                      <td className="py-1 text-gray-800 align-top">{value}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            ) : (
-              <p className="text-neutral-800">No technical specifications available.</p>
-            )}
-          </section>
-
-          <section id="service" className={`mb-8 section-slide-in${sectionVisible[3] ? ' visible' : ''}`} ref={el => (sectionRefs.current[3] = el)}>
-            <h2 className="text-2xl font-bold mb-2 text-neutral-900">Service</h2>
-            <p className="text-neutral-800">{locomotive.service}</p>
-          </section>
-
-          <section id="preservation" className={`mb-8 section-slide-in${sectionVisible[4] ? ' visible' : ''}`} ref={el => (sectionRefs.current[4] = el)}>
-            <h2 className="text-2xl font-bold mb-2 text-neutral-900">Preservation</h2>
-            <p className="text-neutral-800">{locomotive.preservation}</p>
-          </section>
-
-          <section id="gallery" className={`mb-8 section-slide-in${sectionVisible[5] ? ' visible' : ''}`} ref={el => (sectionRefs.current[5] = el)}>
-            <h2 className="text-2xl font-bold mb-2 text-neutral-900">Gallery</h2>
-            {locomotive.gallery && locomotive.gallery.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {locomotive.gallery.map((img, idx) => (
-                  <div key={idx} className="bg-gray-100 rounded shadow p-2 flex flex-col items-center">
-                    <img
-                      src={img}
-                      alt={`Gallery ${idx + 1}`}
-                      className="w-full h-48 object-cover rounded mb-2 cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={() => setLightboxImg(img)}
-                    />
-                    <span className="text-xs text-gray-600">Image {idx + 1}</span>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <p className="text-neutral-800">No gallery images available.</p>
-            )}
-          </section>
-
-          <section id="references" className={`mb-8 section-slide-in${sectionVisible[6] ? ' visible' : ''}`} ref={el => (sectionRefs.current[6] = el)}>
-            <h2 className="text-2xl font-bold mb-2 text-neutral-900">References</h2>
-            <ul className="list-disc ml-6 text-blue-700">
-              <li><a href="https://en.wikipedia.org/wiki/Indian_locomotives" target="_blank" rel="noopener noreferrer" className="hover:underline">Wikipedia: Indian locomotives</a></li>
-              <li><a href="https://www.irfca.org/" target="_blank" rel="noopener noreferrer" className="hover:underline">IRFCA: Indian Railways Fan Club</a></li>
-              <li>[Add more references here]</li>
-            </ul>
-          </section>
+          {sectionList.map((section, index) => {
+            let sectionContent;
+            
+            switch (section.id) {
+              case 'introduction':
+                sectionContent = (
+                  <section id="introduction" className={`mb-8 section-slide-in${sectionVisible[index] ? ' visible' : ''}`} ref={el => (sectionRefs.current[index] = el)}>
+                    <h2 className="text-2xl font-bold mb-2 text-neutral-900">Introduction</h2>
+                    <p className="text-neutral-800">{locomotive.longDescription || locomotive.description}</p>
+                  </section>
+                );
+                break;
+                
+              case 'history':
+                sectionContent = (
+                  <section id="history" className={`mb-8 section-slide-in${sectionVisible[index] ? ' visible' : ''}`} ref={el => (sectionRefs.current[index] = el)}>
+                    <h2 className="text-2xl font-bold mb-2 text-neutral-900">History</h2>
+                    <p className="text-neutral-800">{locomotive.history}</p>
+                  </section>
+                );
+                break;
+                
+              case 'specs':
+                sectionContent = (
+                  <section id="specs" className={`mb-8 section-slide-in${sectionVisible[index] ? ' visible' : ''}`} ref={el => (sectionRefs.current[index] = el)}>
+                    <h2 className="text-2xl font-bold mb-2 text-neutral-900">Technical Specifications</h2>
+                    {locomotive.specs ? (
+                      <table className="w-full text-sm border border-gray-300 bg-gray-50 rounded">
+                        <tbody>
+                          {Object.entries(locomotive.specs).map(([key, value]) => (
+                            <tr key={key} className="border-b border-gray-200">
+                              <td className="font-semibold py-1 pr-2 text-gray-700 align-top w-1/3">{key}</td>
+                              <td className="py-1 text-gray-800 align-top">{value}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    ) : (
+                      <p className="text-neutral-800">No technical specifications available.</p>
+                    )}
+                  </section>
+                );
+                break;
+                
+              case 'service':
+                sectionContent = (
+                  <section id="service" className={`mb-8 section-slide-in${sectionVisible[index] ? ' visible' : ''}`} ref={el => (sectionRefs.current[index] = el)}>
+                    <h2 className="text-2xl font-bold mb-2 text-neutral-900">Current Service</h2>
+                    <p className="text-neutral-800">{locomotive.service}</p>
+                  </section>
+                );
+                break;
+                
+              case 'preservation':
+                sectionContent = (
+                  <section id="preservation" className={`mb-8 section-slide-in${sectionVisible[index] ? ' visible' : ''}`} ref={el => (sectionRefs.current[index] = el)}>
+                    <h2 className="text-2xl font-bold mb-2 text-neutral-900">Preservation</h2>
+                    <p className="text-neutral-800">{locomotive.preservation}</p>
+                  </section>
+                );
+                break;
+                
+              case 'gallery':
+                sectionContent = (
+                  <section id="gallery" className={`mb-8 section-slide-in${sectionVisible[index] ? ' visible' : ''}`} ref={el => (sectionRefs.current[index] = el)}>
+                    <h2 className="text-2xl font-bold mb-2 text-neutral-900">Gallery</h2>
+                    {locomotive.gallery && locomotive.gallery.length > 0 ? (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {locomotive.gallery.map((img, idx) => (
+                          <div key={idx} className="bg-gray-100 rounded shadow p-2 flex flex-col items-center">
+                            <img
+                              src={img}
+                              alt={`Gallery ${idx + 1}`}
+                              className="w-full h-48 object-cover rounded mb-2 cursor-pointer hover:scale-105 transition-transform duration-300"
+                              onClick={() => setLightboxImg(img)}
+                            />
+                            <span className="text-xs text-gray-600">Image {idx + 1}</span>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-neutral-800">No gallery images available.</p>
+                    )}
+                  </section>
+                );
+                break;
+                
+              case 'references':
+                sectionContent = (
+                  <section id="references" className={`mb-8 section-slide-in${sectionVisible[index] ? ' visible' : ''}`} ref={el => (sectionRefs.current[index] = el)}>
+                    <h2 className="text-2xl font-bold mb-2 text-neutral-900">References</h2>
+                    <ul className="list-disc ml-6 text-blue-700">
+                      <li><a href="https://en.wikipedia.org/wiki/Indian_locomotives" target="_blank" rel="noopener noreferrer" className="hover:underline">Wikipedia: Indian locomotives</a></li>
+                      <li><a href="https://www.irfca.org/" target="_blank" rel="noopener noreferrer" className="hover:underline">IRFCA: Indian Railways Fan Club</a></li>
+                    </ul>
+                  </section>
+                );
+                break;
+                
+              default:
+                return null;
+            }
+            
+            return sectionContent;
+          })}
         </main>
       </div>
     </div>

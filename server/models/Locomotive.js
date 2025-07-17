@@ -30,6 +30,11 @@ const locomotiveSchema = new mongoose.Schema({
   preservation: {
     type: String,
   },
+  status: {
+    type: String,
+    enum: ['active', 'retired', 'preserved', 'heritage'],
+    required: true
+  },
   specs: {
     type: Object,
   },

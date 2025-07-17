@@ -22,7 +22,9 @@ function App() {
           <Route path="/locomotives/steam" element={<Steam />} />
           <Route path="/locomotives/diesel" element={<Diesel />} />
           <Route path="/locomotives/electric" element={<Electric />} />
-          <Route path="/locomotives/:type/:id" element={<LocomotiveDetail />} />
+          <Route path="/steam/:id" element={<LocomotiveDetail />} />
+          <Route path="/diesel/:id" element={<LocomotiveDetail />} />
+          <Route path="/electric/:id" element={<LocomotiveDetail />} />
         </Routes>
       </div>
     </Router>

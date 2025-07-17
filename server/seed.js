@@ -1,3 +1,4 @@
+// This file restores the original all-in-one seeder for RailFan.
 const mongoose = require('mongoose');
 const History = require('./models/History');
 const Locomotive = require('./models/Locomotive');
@@ -15,14 +16,13 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', async () => {
   console.log('Connected to MongoDB');
-  
   try {
     // Clear existing data
     await History.deleteMany({});
     await Locomotive.deleteMany({});
     await Train.deleteMany({});
     await Zone.deleteMany({});
-    
+
     // Seed History data
     const historyData = [
       {
@@ -139,6 +139,105 @@ db.once('open', async () => {
         ]
       },
       {
+    type: 'steam',
+    title: 'XA Class',
+    description: 'Light axle‑load broad‑gauge 4‑6‑2 "Pacific" experimental passenger locomotive introduced in 1929.',
+    image: '', // add your hosted image if available
+    longDescription: 'The XA class was built by Vulcan Foundry between 1929–31 (100+ units). Designed for branch lines, it featured a 13.1‑ton axle load, 20,960 lbf tractive effort, and served in India and Pakistan post‑Partition. Two examples are preserved. :contentReference[oaicite:0]',
+    history: 'Introduced 1929–31 under IRS standards for light branch passenger services. :contentReference[oaicite:0]',
+    service: 'Operated branch passenger services on lighter tracks in British India and post‑Partition until retirement in the 1960s. :contentReference[oaicite:0]',
+    preservation: 'Two units preserved (No. 22046 at Parel Workshop; No. 22002 at Chandausi). :contentReference[oaicite:0]',
+    status: 'retired',
+    specs: {
+      "Gauge": "Broad Gauge (5 ft 6 in)",
+      "Wheel Arrangement": "4‑6‑2",
+      "Builder": "Vulcan Foundry",
+      "Year Introduced": 1929,
+      "Axle Load": "13.1 long tons",
+      "Tractive Effort": "20,960 lbf"
+    },
+    gallery: [],
+    classes: [{ name: 'XA', description: 'Light branch passenger Pacific' }]
+  },
+  {
+    type: 'steam',
+    title: 'XB Class',
+    description: 'Broad‑gauge 4‑6‑2 "Pacific" IRS experimental passenger locomotive introduced circa 1924.',
+    image: '',
+    longDescription: 'The XB class, an IRS 4‑6‑2 design with 17‑ton axle load, had ~99 units built. Experienced initial teething issues but served into the 1980s. One example preserved (#450). :contentReference[oaicite:1]',
+    history: 'Designed 1924 by BESA standards to modernize passenger fleet; entered service late 1920s. :contentReference[oaicite:1]',
+    service: 'Hauling express and passenger services until gradual withdrawal through the 1980s. :contentReference[oaicite:1]',
+    preservation: 'One preserved unit (#450) remains; rest scrapped by 1983. :contentReference[oaicite:1]',
+    status: 'retired',
+    specs: {
+      "Gauge": "Broad Gauge (5 ft 6 in)",
+      "Wheel Arrangement": "4‑6‑2",
+      "Axle Load": "17 long tons",
+      "Tractive Effort": "26,760 lbf",
+      "Max Speed": "116 km/h"
+    },
+    gallery: [],
+    classes: [{ name: 'XB', description: 'Intermediate branch passenger Pacific' }]
+  },
+  {
+    type: 'steam',
+    title: 'XC Class',
+    description: 'Heavy‑axle‑load broad‑gauge 4‑6‑2 “Pacific” locomotive used from 1928.',
+    image: '',
+    longDescription: 'The XC class was a heavy Pacific (19.5‑t axle load, 6 ft 2 in drivers) built 1928–31; 72 units served in India and Pakistan post‑Partition. None preserved. :contentReference[oaicite:2]',
+    history: 'Introduced 1928–31 by Vulcan Foundry and Beardmore as heavy‑load passenger locos. :contentReference[oaicite:2]',
+    service: 'Used for mainline passenger runs until phased out; retired without any preservation. :contentReference[oaicite:2]',
+    preservation: 'None preserved. :contentReference[oaicite:2]',
+    status: 'retired',
+    specs: {
+      "Gauge": "Broad Gauge",
+      "Wheel Arrangement": "4‑6‑2",
+      "Axle Load": "19.5 long tons",
+      "Driver Dia": "6 ft 2 in",
+      "Units Built": 72
+    },
+    gallery: [],
+    classes: [{ name: 'XC', description: 'Heavy mainline passenger Pacific' }]
+  },
+  {
+    type: 'steam',
+    title: 'XD Class',
+    description: 'Broad‑gauge 2‑8‑2 “Mikado” freight locomotive used from 1928–48.',
+    image: '',
+    longDescription: 'Built 1928–1948 by multiple builders; 194 units delivered with 37,335 lbf tractive effort. Served freight duties across India; known in Pakistan as CWD. :contentReference[oaicite:3]',
+    history: 'IRS goods design introduced 1928 and produced into post‑war period. :contentReference[oaicite:3]',
+    service: 'Mainstay freight loco until replaced by newer types; withdrawn in late 20th century. :contentReference[oaicite:3]',
+    preservation: 'Several preserved in museums and heritage lines. :contentReference[oaicite:3]',
+    status: 'retired',
+    specs: {
+      "Gauge": "Broad Gauge",
+      "Wheel Arrangement": "2‑8‑2",
+      "Units Built": 194,
+      "Tractive Effort": "37,335 lbf"
+    },
+    gallery: [],
+    classes: [{ name: 'XD', description: 'Standard IRS freight Mikado' }]
+  },
+  {
+    type: 'steam',
+    title: 'XE Class',
+    description: 'Heavy‑goods broad‑gauge 2‑8‑2 “Mikado” locomotive introduced 1928.',
+    image: '',
+    longDescription: 'The XE class was India’s heaviest non‑articulated steam loco (50,920 lbf tractive effort), built 1928–30 and 1945; 93 units delivered. Five preserved, including operational XE 3634. :contentReference[oaicite:4]',
+    history: 'Developed under IRS standards for heavy freight; built by Beardmore and Vulcan Foundry. :contentReference[oaicite:4]',
+    service: 'Heavy freight runs; withdrawn gradually, some used for shunting. :contentReference[oaicite:4]',
+    preservation: 'Five preserved (e.g., XE 3634 in Rewari). :contentReference[oaicite:4]',
+    status: 'retired',
+    specs: {
+      "Gauge": "Broad Gauge",
+      "Wheel Arrangement": "2‑8‑2",
+      "Units Built": 93,
+      "Tractive Effort": "50,920 lbf"
+    },
+    gallery: [],
+    classes: [{ name: 'XE', description: 'Heavy freight Mikado' }]
+  },
+      {
         type: 'diesel',
         title: 'WDM-2',
         description: 'India’s most successful and iconic diesel locomotive, built by ALCO and produced in large numbers by DLW from 1962 onwards.',
@@ -189,6 +288,17 @@ db.once('open', async () => {
         ]
       }
     ];
+    // Sort locomotiveData by Year Introduced
+    locomotiveData.sort((a, b) => {
+      function extractYear(loco) {
+        let year = loco.specs && loco.specs["Year Introduced"];
+        if (!year) return 9999;
+        if (typeof year === 'number') return year;
+        const match = String(year).match(/\d{4}/);
+        return match ? parseInt(match[0], 10) : 9999;
+      }
+      return extractYear(a) - extractYear(b);
+    });
 
     // Seed Train data
     const trainData = [

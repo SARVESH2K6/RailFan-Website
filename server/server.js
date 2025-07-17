@@ -28,12 +28,18 @@ const historyRoutes = require('./routes/history');
 const locomotiveRoutes = require('./routes/locomotives');
 const trainRoutes = require('./routes/trains');
 const zoneRoutes = require('./routes/zones');
+const steamLocomotivesRoutes = require('./routes/steamLocomotives');
+const dieselLocomotivesRoutes = require('./routes/dieselLocomotives');
+const electricLocomotivesRoutes = require('./routes/electricLocomotives');
 
 // Use routes
 app.use('/api/history', historyRoutes);
 app.use('/api/locomotives', locomotiveRoutes);
 app.use('/api/trains', trainRoutes);
 app.use('/api/zones', zoneRoutes);
+app.use('/api/steam-locomotives', steamLocomotivesRoutes);
+app.use('/api/diesel-locomotives', dieselLocomotivesRoutes);
+app.use('/api/electric-locomotives', electricLocomotivesRoutes);
 
 // Serve static files from the React app
 app.use('/Images', express.static(path.join(__dirname, '../client/public/Images')));

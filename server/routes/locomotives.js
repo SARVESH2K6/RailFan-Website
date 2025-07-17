@@ -24,7 +24,7 @@ router.get('/type/:type', async (req, res) => {
   }
 });
 
-// Get a single locomotive by ID
+// Get a single locomotive
 router.get('/:id', async (req, res) => {
   try {
     const locomotive = await Locomotive.findById(req.params.id);
