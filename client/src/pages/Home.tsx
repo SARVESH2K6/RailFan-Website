@@ -3,9 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
-  const [hoveredHistoryImg, setHoveredHistoryImg] = useState<string | null>(null);
 
   const images = [
     '/Images/index/image1.jpg',
@@ -141,7 +139,7 @@ const Home: React.FC = () => {
             and Vande Bharat to breathtaking routes through the Western Ghats, Himalayas, and Konkan coast, we bring you closer to the 
             heartbeat of India's railway system. Discover fascinating facts, historical milestones, and the engineering marvels that 
             connect millions across the nation. If you have any question, you can contact me or chat with me on my official
-            <a className="text-blue-500" href="https://x.com/SarveshM_2006">Twitter page</a>.
+            <a className="text-blue-500" href="https://x.com/SarveshM_2006"> Twitter page</a>.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="flex items-start w-full fade-in">
@@ -271,6 +269,12 @@ const Home: React.FC = () => {
                   <div className="flex justify-center mt-auto mb-4">
                     {item.link === '/locomotives' ? (
                       <Link to="/locomotives">
+                        <button className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-base px-7 py-2 transition duration-300 shadow-lg">
+                          Explore
+                        </button>
+                      </Link>
+                    ) : item.link === '/trains' ? (
+                      <Link to="/trains">
                         <button className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-base px-7 py-2 transition duration-300 shadow-lg">
                           Explore
                         </button>

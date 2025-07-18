@@ -56,7 +56,7 @@ export default function Locomotives() {
                 onMouseLeave={() => setBgImage(null)}
               >
                 <img
-                  alt={`Image of ${cat.title} Locomotive`}
+                  alt={`WDM-2 Diesel Locomotive`}
                   className="w-full h-40 object-cover grayscale hover:grayscale-0 rounded-t-lg transition duration-300"
                   src={cat.image}
                 />

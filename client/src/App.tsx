@@ -8,6 +8,8 @@ import Steam from './pages/Steam';
 import Diesel from './pages/Diesel';
 import Electric from './pages/Electric';
 import LocomotiveDetail from './pages/LocomotiveDetail';
+import Trains from './pages/Trains';
+import TrainDetail from './pages/TrainDetail';
 import './App.css';
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
           <Route path="/steam/:id" element={<LocomotiveDetail />} />
           <Route path="/diesel/:id" element={<LocomotiveDetail />} />
           <Route path="/electric/:id" element={<LocomotiveDetail />} />
+          <Route path="/trains" element={<Trains />} />
+          <Route path="/trains/:id" element={<TrainDetail />} />
         </Routes>
       </div>
     </Router>

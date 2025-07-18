@@ -16,6 +16,18 @@ const trainSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true
+  },
+  fullDescription: [String],
+  features: [String],
+  specifications: [[String]], // Array of [label, value]
+  routes: [String],
+  history: String,
+  service: String,
+  preservation: String,
+  gallery: [String],
+  infobox: {
+    type: Object,
+    default: {}
   }
 }, {
   timestamps: true

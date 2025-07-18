@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export interface Locomotive {
   _id: string;
@@ -380,6 +380,21 @@ const LocomotiveDetail: React.FC = () => {
             return sectionContent;
           })}
         </main>
+      </div>
+      <div className="max-w-5xl mx-auto mt-6">
+        <Link to={
+          locomotive?.type === 'steam' ? '/locomotives/steam'
+          : locomotive?.type === 'diesel' ? '/locomotives/diesel'
+          : locomotive?.type === 'electric' ? '/locomotives/electric'
+          : '/locomotives'
+        }>
+          <button
+            type="button"
+            className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-base px-7 py-2 transition duration-300 shadow-lg"
+          >
+            ← Back
+          </button>
+        </Link>
       </div>
     </div>
   );
