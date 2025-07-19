@@ -10,6 +10,8 @@ import Electric from './pages/Electric';
 import LocomotiveDetail from './pages/LocomotiveDetail';
 import Trains from './pages/Trains';
 import TrainDetail from './pages/TrainDetail';
+import Zones from './pages/Zones';
+import ZoneDetail from './pages/ZoneDetail';
 import './App.css';
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
           <Route path="/electric/:id" element={<LocomotiveDetail />} />
           <Route path="/trains" element={<Trains />} />
           <Route path="/trains/:id" element={<TrainDetail />} />
+          <Route path="/zones" element={<Zones />} />
+          <Route path="/zones/:id" element={<ZoneDetail />} />
         </Routes>
       </div>
     </Router>
