@@ -75,8 +75,8 @@ const Home: React.FC = () => {
 
   // Update the carousel data to include title, date, and detailed info
   const historyCarouselImages = [
-    { src: '/Images/Train/Steam.jpg', title: 'First Train in India', date: '1853', info: 'The first passenger train in India ran from Bombay to Thane on April 16, 1853, covering 34 km and marking the birth of Indian Railways.' },
-    { src: '/Images/Train/electric.jpg', title: 'First Electric Train', date: '1925', info: 'India’s first electric train ran between Bombay VT and Kurla on February 3, 1925, ushering in a new era of railway technology.' },
+    { src: '/Images/Locomotive/Steam.jpg', title: 'First Train in India', date: '1853', info: 'The first passenger train in India ran from Bombay to Thane on April 16, 1853, covering 34 km and marking the birth of Indian Railways.' },
+    { src: 'https://i.ibb.co/bcwy7B6/WAM1.jpg', title: 'First Electric Train', date: '1925', info: 'India’s first electric train ran between Bombay VT and Kurla on February 3, 1925, ushering in a new era of railway technology.' },
     { src: '/Images/Train/Shatabdi.jpg', title: 'Shatabdi Express', date: '1988', info: 'The Shatabdi Express, introduced in 1988, set new standards for speed and comfort in Indian Railways, connecting major cities with fast, premium service.' },
     { src: '/Images/Train/VandeBharat.jpg', title: 'Vande Bharat Express', date: '2019', info: 'Launched in 2019, the Vande Bharat Express is India’s first semi-high-speed, fully air-conditioned train, representing a leap in indigenous train technology.' },
   ];
@@ -286,7 +286,7 @@ const Home: React.FC = () => {
                         </button>
                       </Link>
                     ) : (
-                      <button className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-base px-7 py-2 transition duration-300 shadow-lg">
+                      <button className="text-white bg-black cursor-not-allowed font-medium rounded-full text-base px-7 py-2 transition duration-300 shadow-lg opacity-60">
                         Explore
                       </button>
                     )}
@@ -330,20 +330,22 @@ const Home: React.FC = () => {
               </a>
             </div>
           </div>
-          <div className="flex flex-col items-center mb-8">
-            <img alt="Logo" className="mx-auto mb-4 rounded-full shadow-lg border-4 border-white" height="100" src="/LOGO.png" width="100"/>
-            <div className="flex space-x-6 mt-2">
-              <a href="https://www.linkedin.com/in/sarvesh-mudaliar/" className="hover:scale-125 transition-transform" aria-label="LinkedIn">
-                <i className="fab fa-linkedin text-4xl text-sky-700 hover:text-sky-500 transition"></i>
-              </a>
-              <a href="https://x.com/SarveshM_2006" className="hover:scale-125 transition-transform" aria-label="Twitter">
-                <i className="fab fa-twitter text-4xl text-blue-400 hover:text-blue-300 transition"></i>
-              </a>
-              <a href="https://github.com/SARVESH2K6" className="hover:scale-125 transition-transform" aria-label="GitHub">
-                <i className="fab fa-github text-4xl text-neutral-800 hover:text-black transition"></i>
-              </a>
-            </div>
-          </div>
+                     <div className="flex flex-col items-center mb-8">
+             <img alt="Logo" className="mx-auto mb-4 rounded-full shadow-lg border-4 border-white" height="100" src="/LOGO.png" width="100"/>
+             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-2xl">
+               <div className="flex space-x-8">
+                 <a href="https://www.linkedin.com/in/sarvesh-mudaliar/" className="hover:scale-125 transition-transform" aria-label="LinkedIn">
+                   <i className="fab fa-linkedin text-4xl text-sky-400 hover:text-sky-300 transition"></i>
+                 </a>
+                 <a href="https://x.com/SarveshM_2006" className="hover:scale-125 transition-transform" aria-label="Twitter">
+                   <i className="fab fa-twitter text-4xl text-blue-400 hover:text-blue-300 transition"></i>
+                 </a>
+                 <a href="https://github.com/SARVESH2K6" className="hover:scale-125 transition-transform" aria-label="GitHub">
+                   <i className="fab fa-github text-4xl text-white hover:text-gray-200 transition"></i>
+                 </a>
+               </div>
+             </div>
+           </div>
           <div className="border-t border-neutral-700 pt-6 mt-8">
             <p className="text-neutral-300 text-center">Copyright © 2025, RailFan</p>
             <p className="text-neutral-400 text-center mt-2">Created by Sarvesh Mudaliar</p>
