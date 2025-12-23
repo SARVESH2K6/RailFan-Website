@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const seedHistory = require('./historySeed');
-const seedSteam = require('./steamSeed');
-const seedDiesel = require('./dieselSeed');
-const seedElectric = require('./electricSeed');
+const seedSteam = require('./steamLocomotivesSeed');
+const seedDiesel = require('./dieselLocomotivesSeed');
+const seedElectric = require('./electricLocomotivesSeed');
 const seedTrains = require('./trainsSeed');
 const seedZones = require('./zonesSeed');
 
