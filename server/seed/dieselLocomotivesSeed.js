@@ -8,7 +8,7 @@ const dieselLocomotiveData = [
     "type": "diesel",
     "title": "WDM-1",
     "description": "India’s first mainline diesel-electric locomotive, built for mixed traffic.",
-    "image": "/Images/Locomotive/wdm1.jpg",
+    "image": "https://i.ibb.co/whHSpt5w/WDM1.jpg",
     "longDescription": "The WDM-1 (Wide gauge Diesel Mixed class 1) was the first generation of mainline diesel-electric locomotives introduced in Indian Railways in the late 1950s. Built by ALCo (USA), these 1,950 hp locomotives marked India's first large-scale transition from steam to diesel traction. Characterized by a boxy body, Co-Co wheel arrangement, and a noticeable roof-mounted dynamic brake fan housing, they were capable of mixed traffic duties including passenger and freight services. Despite their modest power by modern standards, they symbolized modernity in post-independence India.",
     "history": "Introduced in 1957-58 under the World Bank aid program, WDM-1 units were imported from ALCo, USA. Only around 100 units were built. These locomotives initiated Indian Railways' dieselization era. Their success led to further collaborations with ALCo and the eventual production of WDM-2. Although operationally limited by reliability and parts availability over time, they remained in service for nearly three decades.",
     "service": "WDM-1 units served primarily on the Eastern and Northern Railway zones, often used on prestigious mail and express services in their early years. They were later relegated to shunting and departmental duties before retirement.",
@@ -24,7 +24,7 @@ const dieselLocomotiveData = [
       "Tractive Effort": "240 kN",
       "Locoweight": "111 t"
     },
-    "gallery": ["/Images/Locomotive/wdm1.jpg"],
+    "gallery": ["https://i.ibb.co/whHSpt5w/WDM1.jpg"],
     "classes": [
       { "name": "WDM-1", "description": "First-generation diesel locomotive used for mixed traffic" }
     ]
@@ -33,7 +33,7 @@ const dieselLocomotiveData = [
     "type": "diesel",
     "title": "WDM-2",
     "description": "Iconic workhorse diesel-electric locomotive with over 2,800 units built.",
-    "image": "/Images/Locomotive/wdm2.jpg",
+    "image": "https://i.ibb.co/C5Sx8yPr/WDM2.jpg",
     "longDescription": "The WDM-2 is the most recognized and widely used diesel locomotive in Indian Railways history. Developed under license from ALCo and built by DLW Varanasi from 1962 onwards, it became the backbone of Indian diesel operations for over five decades. Powered by a 2,600 hp ALCo 251-B engine, it was versatile enough for both passenger and freight services. Known for its ruggedness and adaptability across India’s diverse terrain, it was a true all-rounder.",
     "history": "Introduced in 1962, the WDM-2 was first built by ALCo and later produced in large numbers by DLW under license. More than 2,800 units were built by the late 1990s. It spawned multiple sub-variants and served as the basis for many diesel classes in India.",
     "service": "WDM-2s operated across the country, hauling everything from mail/express trains to freight and departmental services. Many were modified and continue to serve in limited roles.",
@@ -49,7 +49,7 @@ const dieselLocomotiveData = [
       "Tractive Effort": "275 kN",
       "Locoweight": "112 t"
     },
-    "gallery": ["/Images/Locomotive/wdm2.jpg"],
+    "gallery": ["https://i.ibb.co/C5Sx8yPr/WDM2.jpg"],
     "classes": [
       { "name": "WDM-2", "description": "India’s most successful diesel mixed-traffic locomotive" }
     ]
@@ -58,7 +58,7 @@ const dieselLocomotiveData = [
     "type": "diesel",
     "title": "WDM-3A",
     "description": "Upgraded ALCo design with higher horsepower and improved reliability.",
-    "image": "/Images/Locomotive/wdm3a.jpg",
+    "image": "https://i.ibb.co/XxQP2kwP/WDM3A.jpg",
     "longDescription": "The WDM-3A is an enhanced version of the WDM-2, with an uprated ALCo 251 engine producing 3,100 hp. Designed for mixed-traffic duties, the WDM-3A was among the most reliable locomotives of its class and featured various improvements over its predecessor including better air brakes, electronics, and cooling. It remains one of the most numerous diesel classes in the Indian Railways fleet.",
     "history": "Initially introduced as WDM-2C in the 1990s, it was later reclassified as WDM-3A. DLW Varanasi produced several hundred units, many of which were rebuilds of older WDM-2s. These were later upgraded further under IR's rehabilitation programs.",
     "service": "WDM-3As have served across every zone, known for hauling both heavy freight and long-distance express trains. They continue to be active in both mainline and regional services.",
@@ -74,7 +74,7 @@ const dieselLocomotiveData = [
       "Tractive Effort": "310 kN",
       "Locoweight": "117 t"
     },
-    "gallery": ["/Images/Locomotive/wdm3a.jpg"],
+    "gallery": ["https://i.ibb.co/XxQP2kwP/WDM3A.jpg"],
     "classes": [
       { "name": "WDM-3A", "description": "Uprated mixed-traffic ALCo diesel locomotive" }
     ]
@@ -83,7 +83,7 @@ const dieselLocomotiveData = [
     "type": "diesel",
     "title": "WDM-3D",
     "description": "Modernized high-power ALCo-based diesel locomotive with microprocessor control.",
-    "image": "/Images/Locomotive/wdm3d.jpg",
+    "image": "https://i.ibb.co/d0f7nxcX/WDM3D.jpg",
     "longDescription": "The WDM-3D is a modern 3,300 hp diesel-electric locomotive developed by Indian Railways, based on the proven ALCo 251 platform but with significant upgrades including microprocessor control, enhanced braking, improved crew amenities, and modular electronics. It offers improved fuel efficiency and reliability over older ALCo designs.",
     "history": "Introduced in the early 2000s, WDM-3Ds were built by DLW as a part of efforts to modernize diesel traction. They were originally given new body styling and better cabs, though later versions reused standard ALCo shells. Hundreds were built and deployed nationwide.",
     "service": "WDM-3Ds are seen on express trains, mail services, and regional routes. Their better traction control and speed regulation made them ideal for premium services on non-electrified routes.",
@@ -99,7 +99,7 @@ const dieselLocomotiveData = [
       "Tractive Effort": "320 kN",
       "Locoweight": "118 t"
     },
-    "gallery": ["/Images/Locomotive/wdm3d.jpg"],
+    "gallery": ["https://i.ibb.co/d0f7nxcX/WDM3D.jpg"],
     "classes": [
       { "name": "WDM-3D", "description": "Modern 3,300 hp diesel locomotive with microprocessor control" }
     ]
@@ -108,7 +108,7 @@ const dieselLocomotiveData = [
     "type": "diesel",
     "title": "WDM-4",
     "description": "EMD-powered high-speed diesel locomotive used primarily for express trains.",
-    "image": "/Images/Locomotive/wdm4.jpg",
+    "image": "https://i.ibb.co/RGCYhMjv/WDM4.jpg",
     "longDescription": "The WDM-4 was an early high-speed diesel locomotive imported from EMD (USA) during the 1960s. It was capable of speeds up to 120 km/h and offered 2,600 hp. With its full-width cab, streamlined body, and superior acceleration, it became a preferred choice for hauling express trains including prestigious services like the Rajdhani Express. Although overshadowed by the more widely produced WDM-2, the WDM-4 was mechanically superior in many respects.",
     "history": "Introduced in 1962-63, WDM-4s were part of a batch imported from Electro-Motive Division (GM-EMD) as part of IR’s comparative trials. However, due to licensing constraints and cost, Indian Railways chose ALCo-based WDM-2 for mass production. Only about 100 units of WDM-4 were imported.",
     "service": "WDM-4s served on Northern and Western zones and pulled high-speed passenger trains. Some were also used as VIP specials and during trials with higher-speed rolling stock.",
@@ -124,7 +124,7 @@ const dieselLocomotiveData = [
       "Tractive Effort": "280 kN",
       "Locoweight": "115 t"
     },
-    "gallery": ["/Images/Locomotive/wdm4.jpg"],
+    "gallery": ["https://i.ibb.co/RGCYhMjv/WDM4.jpg"],
     "classes": [
       { "name": "WDM-4", "description": "Imported high-speed diesel locomotive by EMD" }
     ]
@@ -183,7 +183,7 @@ const dieselLocomotiveData = [
   "type": "diesel",
   "title": "WDP-1",
   "description": "Lightweight diesel passenger locomotive designed for low-density routes.",
-  "image": "/Images/Locomotive/wdp1.jpg",
+  "image": "https://i.ibb.co/q34YtvCd/WDP1.jpg",
   "longDescription": "The WDP-1 is a lightweight passenger diesel locomotive developed by Diesel Locomotive Works (DLW), Varanasi, for low-density passenger routes. Introduced in the 1990s, it was designed with a Bo-Bo wheel arrangement and delivered moderate horsepower with improved fuel efficiency. Its compact size and low axle load made it suitable for lightly built branch lines.",
   "history": "Developed in the early 1990s by DLW, the WDP-1 was a passenger variant of the WDM-2 family, with gear ratios and power settings optimized for passenger services. Only a few units were produced, and it was not widely adopted across zones due to its lower power.",
   "service": "WDP-1 locomotives served mainly in Eastern and Northern Railways on regional and branch line services, hauling 8–10 coach passenger trains. Their lower axle load allowed them to operate on routes unsuitable for heavier locomotives.",
@@ -199,7 +199,7 @@ const dieselLocomotiveData = [
     "Tractive Effort": "210 kN",
     "Locoweight": "72 t"
   },
-  "gallery": ["/Images/Locomotive/wdp1.jpg"],
+  "gallery": ["https://i.ibb.co/q34YtvCd/WDP1.jpg"],
   "classes": [
     { "name": "WDP-1", "description": "Light-duty passenger diesel locomotive for regional trains" }
   ]
@@ -208,7 +208,7 @@ const dieselLocomotiveData = [
   "type": "diesel",
   "title": "WDP-3A",
   "description": "High-speed diesel passenger locomotive nicknamed 'Toaster' due to overheating issues.",
-  "image": "/Images/Locomotive/wdp3a.jpg",
+  "image": "https://i.ibb.co/ycHvZBQm/WDP3A.jpg",
   "longDescription": "The WDP-3A was a high-speed diesel passenger locomotive developed by DLW. Derived from the ALCo WDM-2 platform, it was optimized for passenger trains with higher gear ratios and streamlined front-end design. Though powerful, the class earned the nickname 'Toaster' for its tendency to overheat. Despite reliability concerns, it served many premier express trains.",
   "history": "Introduced in the early 2000s as a passenger version of the WDM-3A, it was designed for high-speed services but failed to live up to expectations in hot Indian conditions. Production remained limited to around 60–70 units.",
   "service": "Used for premium services such as Shatabdis and Jan Shatabdis in Southern and Western zones. Later relegated to secondary express duties before being phased out.",
@@ -224,7 +224,7 @@ const dieselLocomotiveData = [
     "Tractive Effort": "320 kN",
     "Locoweight": "117 t"
   },
-  "gallery": ["/Images/Locomotive/wdp3a.jpg"],
+  "gallery": ["https://i.ibb.co/ycHvZBQm/WDP3A.jpg"],
   "classes": [
     { "name": "WDP-3A", "description": "Passenger diesel loco with high-speed gearing and a streamlined cab" }
   ]
@@ -233,7 +233,7 @@ const dieselLocomotiveData = [
   "type": "diesel",
   "title": "WDP-4",
   "description": "EMD-built diesel passenger locomotive known for speed, reliability, and fuel efficiency.",
-  "image": "/Images/Locomotive/wdp4.jpg",
+  "image": "https://i.ibb.co/3mQs6LMv/WDP4.jpg",
   "longDescription": "The WDP-4 is a powerful diesel locomotive built by EMD (USA) under license by DLW for hauling long-distance express trains. Known for its high power-to-weight ratio, the WDP-4 and its variants (WDP-4B, WDP-4D) became the backbone of Indian Railways' diesel passenger fleet. Its sleek single cab design and fuel efficiency set it apart from older ALCo locomotives.",
   "history": "Introduced in 2002 as part of the EMD technology transfer agreement, the WDP-4 was customized to Indian conditions. Later versions included dual cab (WDP-4D) and upgraded horsepower (WDP-4B).",
   "service": "Used across Indian Railways for hauling Rajdhani, Shatabdi, and other superfast trains. WDP-4Ds continue to serve on key routes with heavy-duty performance and minimal maintenance needs.",
@@ -249,7 +249,7 @@ const dieselLocomotiveData = [
     "Tractive Effort": "360 kN",
     "Locoweight": "120 t"
   },
-  "gallery": ["/Images/Locomotive/wdp4.jpg"],
+  "gallery": ["https://i.ibb.co/3mQs6LMv/WDP4.jpg"],
   "classes": [
     { "name": "WDP-4", "description": "High-power EMD passenger diesel locomotive" },
     { "name": "WDP-4B", "description": "Improved variant with better electronics and visibility" },
@@ -259,7 +259,7 @@ const dieselLocomotiveData = [
     "type": "diesel",
     "title": "WDG-3A",
     "description": "Versatile ALCo-based freight locomotive used across India.",
-    "image": "/Images/Locomotive/wdg3a.jpg",
+    "image": "https://i.ibb.co/LDgZJsf9/WDG3A.jpg",
     "longDescription": "The WDG-3A is one of Indian Railways' most widely used diesel freight locomotives, developed from the WDM-2/3A platform. Built by DLW (Varanasi), it features ALCo 251C technology and is renowned for its rugged performance, ease of maintenance, and adaptability to both freight and occasional passenger operations. Though designed for freight, its robust traction has made it a workhorse on mixed-traffic duties across India.",
     "history": "Introduced in the late 1990s as a freight-dedicated version of the WDM-3A, the WDG-3A was developed by modifying the gear ratio and boosting the locomotive’s hauling capacity. These locomotives continued the ALCo legacy and were produced in large numbers until EMD designs began replacing them.",
     "service": "WDG-3As serve in every zone of Indian Railways and are used for hauling freight, especially in non-electrified territories. They can also be seen on mail and express trains, particularly in hilly and difficult terrains due to their tractive power and braking capacity.",
@@ -275,7 +275,7 @@ const dieselLocomotiveData = [
       "Tractive Effort": "350 kN",
       "Locoweight": "123 t"
     },
-    "gallery": ["/Images/Locomotive/wdg3a.jpg"],
+    "gallery": ["https://i.ibb.co/LDgZJsf9/WDG3A.jpg"],
     "classes": [
       { "name": "WDG-3A", "description": "ALCo-based freight diesel locomotive derived from WDM-3A" }
     ]
@@ -284,7 +284,7 @@ const dieselLocomotiveData = [
     "type": "diesel",
     "title": "WDG-4",
     "description": "High-horsepower EMD freight locomotive with robust hauling capabilities.",
-    "image": "/Images/Locomotive/wdg4.jpg",
+    "image": "https://i.ibb.co/QvRrF07y/WDG4.jpg",
     "longDescription": "The WDG-4 is a powerful freight diesel locomotive based on the EMD GT46MAC platform and built by DLW under license from General Motors (USA). It features a single-cab design with a high horsepower rating and superior fuel economy. Known for its rugged performance and high-speed hauling capability, the WDG-4 has transformed freight operations on Indian Railways.",
     "history": "Introduced in the early 2000s as part of Indian Railways’ modernization program, the WDG-4 represented a leap in power and technology over ALCo locomotives. It was derived from the same platform as the WDP-4 but optimized for freight with a different gear ratio and dynamic braking systems.",
     "service": "WDG-4s are primarily used for long-distance heavy freight trains, including coal, iron ore, and container rakes. Their deployment has improved turnaround times and reduced the number of locomotives needed per train. They operate extensively in both electrified and non-electrified sections.",
@@ -300,7 +300,7 @@ const dieselLocomotiveData = [
       "Tractive Effort": "560 kN",
       "Locoweight": "126 t"
     },
-    "gallery": ["/Images/Locomotive/wdg4.jpg"],
+    "gallery": ["https://i.ibb.co/QvRrF07y/WDG4.jpg"],
     "classes": [
       { "name": "WDG-4", "description": "Freight version of the EMD GT46MAC locomotive" }
     ]
@@ -359,7 +359,7 @@ const dieselLocomotiveData = [
     "type": "diesel",
     "title": "WDG-5",
     "description": "Prototype high-power freight locomotive from EMD with limited deployment.",
-    "image": "/Images/Locomotive/wdg5.jpg",
+    "image": "https://i.ibb.co/WNxTjfB5/WDG5.jpg",
     "longDescription": "The WDG-5 is an experimental freight locomotive developed by EMD for Indian Railways based on the SD80MAC platform. It is the most powerful diesel locomotive produced for Indian Railways, featuring high horsepower and advanced cooling systems. Despite its potential, only a few prototypes were built due to practical limitations and operational constraints.",
     "history": "Unveiled in 2012 by EMD and DLW as an ultra-heavy freight locomotive, the WDG-5 (nicknamed ‘Beast’) had a power output of 5,500 hp. However, high axle load and infrastructure compatibility issues limited its rollout, and the project was not expanded beyond initial units.",
     "service": "Used sparingly on select routes for high-tonnage freight. Its use has been experimental and mostly confined to trials and occasional deployments due to its weight and maintenance needs.",
@@ -375,7 +375,7 @@ const dieselLocomotiveData = [
       "Tractive Effort": "600 kN",
       "Locoweight": "135 t"
     },
-    "gallery": ["/Images/Locomotive/wdg5.jpg"],
+    "gallery": ["https://i.ibb.co/WNxTjfB5/WDG5.jpg"],
     "classes": [
       { "name": "WDG-5", "description": "Prototype high-horsepower EMD freight locomotive" }
     ]
@@ -384,7 +384,7 @@ const dieselLocomotiveData = [
     "type": "diesel",
     "title": "WDG-6G",
     "description": "Ultra-modern, high-powered diesel-electric freight locomotive by GE.",
-    "image": "/Images/Locomotive/wdg6g.jpg",
+    "image": "https://i.ibb.co/mFrJRt4t/WDG6G.jpg",
     "longDescription": "The WDG-6G is a powerful next-generation freight locomotive developed by GE as part of Indian Railways' modernization efforts. Designed for high-speed and high-axle-load freight service, it features advanced traction control, low emissions, and a modular, service-friendly design. Its six-axle Co-Co configuration enables superior adhesion and tractive effort.",
     "history": "Introduced as a follow-up to the successful WDG-4G class, the WDG-6G was developed with enhanced capabilities, including better software, monitoring, and emissions systems. Though few units exist, it showcases the future of heavy freight hauling in India.",
     "service": "Currently deployed for testing and specific heavy freight assignments. It is capable of handling long-haul, high-tonnage trains with reduced fuel consumption and emissions, positioning it as a long-term replacement for older diesel locomotives.",
@@ -400,7 +400,7 @@ const dieselLocomotiveData = [
       "Tractive Effort": "620 kN",
       "Locoweight": "138 t"
     },
-    "gallery": ["/Images/Locomotive/wdg6g.jpg"],
+    "gallery": ["https://i.ibb.co/mFrJRt4t/WDG6G.jpg"],
     "classes": [
       { "name": "WDG-6G", "description": "Next-gen GE freight locomotive for heavy-duty operations" }
     ]
@@ -409,7 +409,7 @@ const dieselLocomotiveData = [
     "type": "diesel",
     "title": "WDS-1",
     "description": "India's first diesel-electric shunter, imported from the USA.",
-    "image": "/Images/Locomotive/wds1.jpg",
+    "image": "https://i.ibb.co/4g2J4NML/WDS1.jpg",
     "longDescription": "The WDS-1 was Indian Railways' first diesel-electric shunting locomotive, imported from the United States shortly after independence. These locomotives were built by ALCo and later reclassified under the WDS-1 designation. Compact and lightweight, they were ideal for yard work, light freight duties, and station shunting, serving as a critical bridge from steam to diesel traction.",
     "history": "Imported between 1944 and 1945 as part of World War II support, these locomotives were originally classified as Class DS and later re-designated WDS-1 under the 1960s classification scheme. They were instrumental in helping Indian Railways transition from steam to diesel technology.",
     "service": "Primarily deployed for shunting duties at large junctions, loco sheds, and industrial sidings. Their reliability made them a fixture in shunting operations until phased out in favor of newer models.",
@@ -425,7 +425,7 @@ const dieselLocomotiveData = [
       "Tractive Effort": "92 kN",
       "Locoweight": "60 t"
     },
-    "gallery": ["/Images/Locomotive/wds1.jpg"],
+    "gallery": ["https://i.ibb.co/4g2J4NML/WDS1.jpg"],
     "classes": [
       { "name": "WDS-1", "description": "First-generation diesel shunter imported from ALCo USA" }
     ]
@@ -509,7 +509,7 @@ const dieselLocomotiveData = [
     "type": "diesel",
     "title": "WDS-6",
     "description": "Powerful shunting locomotive widely used in industrial and mainline yards.",
-    "image": "/Images/Locomotive/wds6.jpg",
+    "image": "https://i.ibb.co/9mhVftzS/WDS6.jpg",
     "longDescription": "The WDS-6 is a powerful and versatile diesel-electric shunter designed for heavy shunting operations. Equipped with a reliable ALCo 251C engine, it offers excellent low-speed control, making it ideal for marshalling yards and industrial loading points. It is one of the most popular shunters used by both Indian Railways and private industries for high-load tasks.",
     "history": "Introduced in the 1970s by DLW, the WDS-6 was an evolution of the WDS-4 and WDS-5 series, designed to provide more power and better performance in heavy shunting. Over time, it became a mainstay in both government and private sectors.",
     "service": "Extensively used across Indian Railways and in sectors like petroleum, steel, ports, and cement industries. Its robustness allows it to operate continuously in harsh industrial conditions with minimal downtime.",
@@ -525,7 +525,7 @@ const dieselLocomotiveData = [
       "Tractive Effort": "260 kN",
       "Locoweight": "112 t"
     },
-    "gallery": ["/Images/Locomotive/wds6.jpg"],
+    "gallery": ["https://i.ibb.co/9mhVftzS/WDS6.jpg"],
     "classes": [
       { "name": "WDS-6", "description": "High-power ALCo-based shunting locomotive used in rail yards and industry" }
     ]
