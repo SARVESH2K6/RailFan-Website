@@ -215,11 +215,11 @@ const electricLocomotiveData = [
     "type": "electric",
     "title": "WAM-1",
     "description": "India’s first AC electric locomotive for mixed traffic operations.",
-    "image": "/Images/Locomotive/wam1.jpg",
+    "image": "https://i.ibb.co/bcwy7B6/WAM1.jpg",
     "longDescription": "The WAM-1 marked India’s shift to 25 kV AC electrification in the 1950s. These locomotives were built to serve both passenger and freight services and introduced India to AC traction systems. Their introduction laid the foundation for standardization of electric traction across Indian Railways.",
     "history": "Manufactured in 1959 by a European consortium including Maschinenfabrik Esslingen (Germany) and Hitachi (Japan), WAM-1 was the first locomotive class in India to operate under 25 kV AC overhead lines. It was introduced when Indian Railways started electrifying sections in Eastern India. A total of 100 units were imported.",
     "service": "Initially deployed on the Howrah–Burdwan and Asansol routes, WAM-1s were used for passenger trains like Howrah Mail and light freight duties. Their mixed-traffic capability allowed flexibility in operations, especially during early electrification stages.",
-    "preservation": "One unit is preserved at the National Rail Museum in New Delhi. Others were phased out gradually in the 1990s.",
+    "preservation": "Some were still in operation on ER (Sealdah-Lalgola passenger, etc.) even in the late 1990s. All of them have been withdrawn from service. One is preserved at the NRM (#20202, 'Jagjivan Ram').",
     "status": "retired",
     "specs": {
       "Gauge": "Broad Gauge (5 ft 6 in)",
@@ -229,7 +229,7 @@ const electricLocomotiveData = [
       "Power Output": "2,970 hp",
       "Max Speed": "112 km/h"
     },
-    "gallery": ["/Images/Locomotive/wam1.jpg"],
+    "gallery": ["https://i.ibb.co/bcwy7B6/WAM1.jpg"],
     "classes": [
       { "name": "WAM-1", "description": "First AC electric locomotive in Indian Railways" }
     ]
@@ -307,7 +307,7 @@ const electricLocomotiveData = [
     "type": "electric",
     "title": "WAP-1",
     "description": "India’s first dedicated AC electric passenger locomotive introduced in 1980.",
-    "image": "/Images/Locomotive/wap1.jpg",
+    "image": "https://i.ibb.co/WWSHTmFj/WAP1.jpg",
     "longDescription": "The WAP-1 is India’s first indigenously developed electric locomotive for high-speed passenger services under AC electrification. Designed and built by Chittaranjan Locomotive Works (CLW), it marked the beginning of modern electric traction for express trains in India. Known for its distinctive sharp looks and efficient acceleration, the WAP-1 was a major step forward in Indian Railways’ shift from diesel to electric power.",
     "history": "Introduced in 1980, the WAP-1 was developed in response to the need for faster and more powerful locomotives for India's growing passenger train demands. It was based loosely on the WAG-5 design but optimized for passenger usage. The success of WAP-1 led to the development of more advanced WAP classes.",
     "service": "Initially used to haul premier trains like the Shatabdi and Rajdhani Express, the WAP-1 served major trunk routes across India. Over time, many units were reassigned to haul mail and express services as newer models took over.",
@@ -321,7 +321,7 @@ const electricLocomotiveData = [
       "Power Output": "3,950 hp",
       "Max Speed": "130 km/h"
     },
-    "gallery": ["/Images/Locomotive/wap1.jpg"],
+    "gallery": ["https://i.ibb.co/WWSHTmFj/WAP1.jpg"],
     "classes": [
       { "name": "WAP-1", "description": "India’s first high-speed AC passenger electric locomotive" }
     ]
@@ -330,7 +330,7 @@ const electricLocomotiveData = [
     "type": "electric",
     "title": "WAP-3",
     "description": "A short-lived experimental locomotive based on WAP-1 with minor improvements.",
-    "image": "/Images/Locomotive/wap3.jpg",
+    "image": "https://i.ibb.co/W48smSvz/WAP3.jpg",
     "longDescription": "The WAP-3 was an experimental class created as a bridge between WAP-1 and WAP-4. Only a small number of units were built to test out performance enhancements over the WAP-1 platform, including slight upgrades in gearing and traction motors.",
     "history": "Developed in the late 1980s by CLW, the WAP-3 was a testbed for features that would later evolve into the WAP-4 class. Due to limited advantages over the WAP-1 and the subsequent success of the WAP-4, the WAP-3 never entered mass production.",
     "service": "Used for hauling express and mail trains primarily in Eastern India. Due to small fleet size, their role was quickly overtaken by more powerful locomotives.",
@@ -344,7 +344,7 @@ const electricLocomotiveData = [
       "Power Output": "4,000 hp",
       "Max Speed": "130 km/h"
     },
-    "gallery": ["/Images/Locomotive/wap3.jpg"],
+    "gallery": ["https://i.ibb.co/W48smSvz/WAP3.jpg"],
     "classes": [
       { "name": "WAP-3", "description": "Experimental version of WAP-1 with performance tweaks" }
     ]
@@ -353,7 +353,7 @@ const electricLocomotiveData = [
     "type": "electric",
     "title": "WAP-4",
     "description": "One of the most widely used and successful Indian passenger locomotives.",
-    "image": "/Images/Locomotive/wap4.jpg",
+    "image": "https://i.ibb.co/B2bV06Dh/WAP4.jpg",
     "longDescription": "The WAP-4 is a powerful passenger electric locomotive developed by CLW to replace aging WAP-1 and WAP-3 locos. Designed with a more robust frame and better bogies, it provided better ride quality and could haul longer trains at higher speeds. Its legacy includes decades of faithful service hauling almost every major express train in India before WAP-7 took over.",
     "history": "Introduced in 1994, the WAP-4 was developed after evaluating the shortcomings of previous WAP classes. It featured high-adhesion bogies and silicon rectifiers for better performance and reliability. It became the workhorse of Indian Railways for almost two decades.",
     "service": "Served across all zones, hauling major trains like the Kerala Express, Tamil Nadu Express, and more. Even today, some WAP-4s remain in service, especially in southern and eastern India.",
@@ -367,7 +367,7 @@ const electricLocomotiveData = [
       "Power Output": "5,000 hp",
       "Max Speed": "140 km/h"
     },
-    "gallery": ["/Images/Locomotive/wap4.jpg"],
+    "gallery": ["https://i.ibb.co/B2bV06Dh/WAP4.jpg"],
     "classes": [
       { "name": "WAP-4", "description": "Highly successful passenger electric locomotive" }
     ]
@@ -376,7 +376,7 @@ const electricLocomotiveData = [
     "type": "electric",
     "title": "WAP-5",
     "description": "A high-speed passenger locomotive used in India’s fastest trains.",
-    "image": "/Images/Locomotive/wap5.jpg",
+    "image": "https://i.ibb.co/HDmkkwK8/WAP5.jpg",
     "longDescription": "The WAP-5 is a modern high-speed electric locomotive derived from the Swiss Lok 2000 platform. It features a streamlined body, 3-phase AC motors, regenerative braking, and microprocessor-based controls. It is the preferred choice for high-speed premium trains like Gatimaan Express and Vande Bharat Express.",
     "history": "Introduced in 1995 with technology transfer from ABB (Switzerland), WAP-5 was a technological leap for Indian Railways. It enabled high-speed passenger operations with safety systems like Vigilance Control Device and Slip/Slide control.",
     "service": "Used primarily on high-speed corridors for Shatabdi, Gatimaan, and semi-high-speed trains. It can achieve speeds up to 160 km/h and is still a core part of India’s premium rail fleet.",
@@ -390,7 +390,7 @@ const electricLocomotiveData = [
       "Power Output": "5,400 hp",
       "Max Speed": "160 km/h"
     },
-    "gallery": ["/Images/Locomotive/wap5.jpg", "/Images/Train/gatimaan.jpg"],
+    "gallery": ["https://i.ibb.co/HDmkkwK8/WAP5.jpg", "/Images/Train/gatimaan.jpg"],
     "classes": [
       { "name": "WAP-5", "description": "Modern high-speed passenger locomotive" }
     ]
@@ -422,7 +422,7 @@ const electricLocomotiveData = [
     type: 'electric',
     title: 'WAP-7',
     description: 'The backbone of Indian Railways’ passenger fleet since the 2000s, known for its high power, reliability, and regenerative braking.',
-    image: '/Images/Locomotive/electric.jpg',
+    image: 'https://i.ibb.co/tww8HTkd/WAP7.jpg',
     longDescription: 'The WAP-7 is a high-speed electric locomotive developed by Chittaranjan Locomotive Works. Introduced in the early 2000s, it is capable of hauling long, heavy express trains at speeds up to 140 km/h. Its advanced features include regenerative braking and microprocessor-based controls, making it a favorite for premium passenger services.',
     history: 'WAP-7 was developed to meet the need for high-speed, high-power electric locomotives. It is based on the WAG-9 freight design but optimized for passenger service.',
     service: 'WAP-7s haul premier trains like Rajdhani, Shatabdi, and Duronto Expresses, providing fast and efficient service across electrified routes.',
@@ -437,8 +437,7 @@ const electricLocomotiveData = [
       "Max Speed": "140 km/h"
     },
     gallery: [
-      '/Images/Locomotive/electric.jpg',
-      '/Images/Train/VandeBharat.jpg'
+      'https://i.ibb.co/tww8HTkd/WAP7.jpg'
     ],
     classes: [
       { name: 'WAP-7', description: 'High-speed passenger electric locomotive' }
@@ -448,7 +447,7 @@ const electricLocomotiveData = [
     "type": "electric",
     "title": "WAG-1",
     "description": "India’s first 25 kV AC goods locomotive, brought from Europe in the 1960s.",
-    "image": "/Images/Locomotive/wag1.jpg",
+    "image": "https://i.ibb.co/SDQxFVrW/WAG1.jpg",
     "longDescription": "The WAG‑1 was India’s pioneering 25 kV AC freight locomotive, introduced between 1963 and 1966. With a B‑B monomotor bogie design, Siemens‑ACEC/Alstom traction motors, and regenerative braking, it established the foundation of electric goods haulage in independent India.",
     "history": "Imported by the “European Group” (Krauss‑Maffei, Krupp, SFAC, La Brugeoise & Nivelle) and assembled at CLW, 112 units entered service from 1964. They symbolized India’s shift to high‑voltage traction.",
     "service": "Worked across the entire Indian Railways network, hauling freight—and occasionally passenger—trains at up to 112 km/h for nearly 40 years.",
@@ -462,7 +461,7 @@ const electricLocomotiveData = [
       "Power Output": "2,930 hp",
       "Max Speed": "112 km/h"
     },
-    "gallery": ["/Images/Locomotive/wag1.jpg"],
+    "gallery": ["https://i.ibb.co/SDQxFVrW/WAG1.jpg"],
     "classes": [
       { "name": "WAG‑1", "description": "First- generation AC freight locomotive" }
     ]
@@ -517,7 +516,7 @@ const electricLocomotiveData = [
     "type": "electric",
     "title": "WAG-4",
     "description": "Hitachi-built AC freight loco with refined systems.",
-    "image": "/Images/Locomotive/wag4.jpg",
+    "image": "https://i.ibb.co/Fv32Dc9/WAG4.jpg",
     "longDescription": "Introduced alongside WAG‑3, WAG‑4 units delivered by Hitachi offered improved traction control, braking, and reliability.",
     "history": "Imported in small numbers in late 1960s as complement to earlier classes :contentReference[oaicite:4]{index=4}.",
     "service": "Assigned to freight duties across Eastern and Central zones. Withdrawn by the 1990s.",
@@ -531,7 +530,7 @@ const electricLocomotiveData = [
       "Power Output": "≈3,400 hp",
       "Max Speed": "80 km/h"
     },
-    "gallery": ["/Images/Locomotive/wag4.jpg"],
+    "gallery": ["https://i.ibb.co/Fv32Dc9/WAG4.jpg"],
     "classes": [
       { "name": "WAG‑4", "description": "Enhanced AC freight locomotive from Hitachi" }
     ]
@@ -540,7 +539,7 @@ const electricLocomotiveData = [
     "type": "electric",
     "title": "WAG-5",
     "description": "India’s most numerous and versatile AC freight locomotive.",
-    "image": "/Images/Locomotive/wag5.jpg",
+    "image": "https://i.ibb.co/W4b6vZvw/WAG5.jpg",
     "longDescription": "The WAG‑5 series, introduced in the late 1970s, became the backbone of IR AC freight haulage. Available in multiple subtypes (5A, 5H, etc.), they featured Co‑Co bogies, silicon rectifiers, and produced reliable performance for decades.",
     "history": "Built extensively by CLW and BHEL, WAG‑5 filled the expanding AC freight network from 1978 onward :contentReference[oaicite:5]{index=5}.",
     "service": "Operated across all electrified corridors pulling coal, iron ore, and container rakes; many remain in secondary service.",
@@ -554,7 +553,7 @@ const electricLocomotiveData = [
       "Power Output": "≈4,000 hp",
       "Max Speed": "100 km/h"
     },
-    "gallery": ["/Images/Locomotive/wag5.jpg"],
+    "gallery": ["https://i.ibb.co/W4b6vZvw/WAG5.jpg"],
     "classes": [
       { "name": "WAG‑5", "description": "Reliable workhorse of Indian freight rail" }
     ]
@@ -586,7 +585,7 @@ const electricLocomotiveData = [
     "type": "electric",
     "title": "WAG-7",
     "description": "Robust and reliable freight loco based on WAP‑4 platform.",
-    "image": "/Images/Locomotive/wag7.jpg",
+    "image": "https://i.ibb.co/7NpcQwm8/WAG7.jpg",
     "longDescription": "The WAG‑7, introduced in 1994, became a workhorse version of the WAP‑4, optimized for freight with heavy-duty traction and braking systems.",
     "history": "Developed by CLW to meet demands for reliable high-capacity freight haulage, this Co‑Co locomotive became standard for IR :contentReference[oaicite:7]{index=7}.",
     "service": "Still in wide service, hauling long coal and container rakes across national freight corridors.",
@@ -600,7 +599,7 @@ const electricLocomotiveData = [
       "Power Output": "5,000 hp",
       "Max Speed": "100 km/h"
     },
-    "gallery": ["/Images/Locomotive/wag7.jpg"],
+    "gallery": ["https://i.ibb.co/7NpcQwm8/WAG7.jpg"],
     "classes": [
       { "name": "WAG‑7", "description": "Versatile freight locomotive standardizing IR haulage" }
     ]
@@ -609,7 +608,7 @@ const electricLocomotiveData = [
     "type": "electric",
     "title": "WAG-9",
     "description": "India’s first 3-phase freight loco, most powerful until WAG‑12.",
-    "image": "/Images/Locomotive/wag9.jpg",
+    "image": "https://i.ibb.co/bgJSK0s6/WAG9.jpg",
     "longDescription": "The WAG‑9 series (since 1996) introduced 3-phase AC traction, IGBT/GTO converters, Adtranz bogies, regenerative braking and power outputs above 6,000 hp. Subtypes include 9H/9i/9HH/EF12K twins.",
     "history": "Developed by ABB and CLW starting 1995; over 5,100 units produced across CLW, BLW, BHEL, and PLW :contentReference[oaicite:8]{index=8}.",
     "service": "Now the predominant freight locomotive class, replacing WAG‑7 in heavy haul duties; some twin units used for high-tonnage DFC sections.",
@@ -623,7 +622,7 @@ const electricLocomotiveData = [
       "Power Output": "6,120 hp (standard), 9,000 hp (9HH), 12,000 hp (双 unit)",
       "Max Speed": "100 km/h"
     },
-    "gallery": ["/Images/Locomotive/wag9.jpg"],
+    "gallery": ["https://i.ibb.co/bgJSK0s6/WAG9.jpg"],
     "classes": [
       { "name": "WAG‑9", "description": "High‑power 3‑phase freight locomotive of modern IR" }
     ]
@@ -632,7 +631,7 @@ const electricLocomotiveData = [
     "type": "electric",
     "title": "WAG-11",
     "description": "Twin‑section freight locomotive converted from WDG‑4 diesel.",
-    "image": "/Images/Locomotive/wag11.jpg",
+    "image": "https://i.ibb.co/bj8FRWdW/WAG11.jpg",
     "longDescription": "The WAG‑11 is a twin-section Co′Co′+Co′Co′ electric loco introduced from 2018 by BLW, converting WDG‑4 diesel engines into electric heavy-haulers with 12,000 hp combined output.",
     "history": "Built at BLW since 2018; four prototypes assembled by January 2023 and undergoing trials :contentReference[oaicite:9]{index=9}.",
     "service": "Assigned to Bondamunda shed; intended for heavy iron‑ore and coal rakes. Currently in testing with limited operations.",
@@ -646,7 +645,7 @@ const electricLocomotiveData = [
       "Power Output": "12,000 hp (combined)",
       "Max Speed": "105 km/h"
     },
-    "gallery": ["/Images/Locomotive/wag11.jpg"],
+    "gallery": ["https://i.ibb.co/bj8FRWdW/WAG11.jpg"],
     "classes": [
       { "name": "WAG‑11", "description": "Twin-section electric loco from diesel rebuilds" }
     ]
@@ -655,7 +654,7 @@ const electricLocomotiveData = [
     "type": "electric",
     "title": "WAG-12",
     "description": "India’s most powerful freight locomotive at 12,000 hp, built for DFC.",
-    "image": "/Images/Locomotive/wag12.jpg",
+    "image": "https://i.ibb.co/5WH3qvR8/WAG12B.jpg",
     "longDescription": "The WAG‑12B, a 12,000 hp loco built by Alstom in the Madhepura facility since 2019, is designed for hauling 6,000 tonne rakes on Dedicated Freight Corridors with electric axle-mounted traction motors and advanced safety systems.",
     "history": "Developed under India–France industrial collaboration; the first unit flagged off in 2019. Highest-powered loco in IR :contentReference[oaicite:10]{index=10}.",
     "service": "Assigned to Western and Eastern Dedicated Freight Corridors to move heavy block rakes at 100 km/h.",
@@ -669,7 +668,7 @@ const electricLocomotiveData = [
       "Power Output": "12,000 hp",
       "Max Speed": "100 km/h"
     },
-    "gallery": ["/Images/Locomotive/wag12.jpg"],
+    "gallery": ["https://i.ibb.co/5WH3qvR8/WAG12B.jpg"],
     "classes": [
       { "name": "WAG‑12", "description": "High‑power freight locomotive built for DFC" }
     ]
